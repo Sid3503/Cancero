@@ -1,0 +1,192 @@
+Cancer id,Cancer label,Population code (ISO/UN),Alpha‑3 code,Population,Sex,Incidence - ASR (World),Mortality - ASR (World),Grouped by
+39,All cancers,716,ZWE,Zimbabwe,0,207.96,144.04,Africa
+39,All cancers,710,ZAF,South Africa,0,203.42,122.52,Africa
+39,All cancers,638,REU,"France, La Réunion",0,203.07,95.2,Africa
+39,All cancers,516,NAM,Namibia,0,193.48,112.96,Africa
+39,All cancers,818,EGY,Egypt,0,166.13,107.68,Africa
+39,All cancers,894,ZMB,Zambia,0,159.53,109.22,Africa
+39,All cancers,454,MWI,Malawi,0,159.5,117.87,Africa
+39,All cancers,800,UGA,Uganda,0,154.35,113.86,Africa
+39,All cancers,504,MAR,Morocco,0,149.83,85.94,Africa
+39,All cancers,404,KEN,Kenya,0,149.14,104.04,Africa
+39,All cancers,012,DZA,Algeria,0,141.17,77.66,Africa
+39,All cancers,834,TZA,"Tanzania, United Republic of",0,140.13,97.11,Africa
+39,All cancers,480,MUS,Mauritius,0,139.99,66.57,Africa
+39,All cancers,466,MLI,Mali,0,139.88,102.43,Africa
+39,All cancers,384,CIV,"Côte d'Ivoire",0,136.96,93.56,Africa
+39,All cancers,788,TUN,Tunisia,0,135.35,80.17,Africa
+39,All cancers,748,SWZ,Eswatini,0,135.3,88.82,Africa
+39,All cancers,024,AGO,Angola,0,133.47,90.03,Africa
+39,All cancers,903,,Africa,0,132.29,88.91,Africa
+39,All cancers,434,LBY,Libya,0,132.25,91.09,Africa
+39,All cancers,508,MOZ,Mozambique,0,128.75,96.33,Africa
+39,All cancers,108,BDI,Burundi,0,128.2,98.66,Africa
+39,All cancers,120,CMR,Cameroon,0,126.02,87.33,Africa
+39,All cancers,854,BFA,Burkina Faso,0,125.18,98.47,Africa
+39,All cancers,706,SOM,Somalia,0,121.03,95.54,Africa
+39,All cancers,288,GHA,Ghana,0,120.36,82.59,Africa
+39,All cancers,148,TCD,Chad,0,118.14,86.18,Africa
+39,All cancers,450,MDG,Madagascar,0,117.41,83.61,Africa
+39,All cancers,324,GIN,Guinea,0,116.32,87.53,Africa
+39,All cancers,426,LSO,Lesotho,0,115.54,81.98,Africa
+39,All cancers,072,BWA,Botswana,0,115.41,66.13,Africa
+39,All cancers,430,LBR,Liberia,0,115.21,83.97,Africa
+39,All cancers,266,GAB,Gabon,0,114.38,69.47,Africa
+39,All cancers,686,SEN,Senegal,0,113.85,81.62,Africa
+39,All cancers,566,NGA,Nigeria,0,113.55,74.64,Africa
+39,All cancers,226,GNQ,Equatorial Guinea,0,107.72,72.1,Africa
+39,All cancers,768,TGO,Togo,0,107.48,73.96,Africa
+39,All cancers,174,COM,Comoros,0,106.81,75.34,Africa
+39,All cancers,478,MRT,Mauritania,0,105.31,74.75,Africa
+39,All cancers,678,STP,Sao Tome and Principe,0,104.86,67.95,Africa
+39,All cancers,231,ETH,Ethiopia,0,104.49,74.45,Africa
+39,All cancers,180,COD,"Congo, Democratic Republic of",0,102.99,76.18,Africa
+39,All cancers,204,BEN,Benin,0,102.63,71.64,Africa
+39,All cancers,140,CAF,Central African Republic,0,101.8,79.87,Africa
+39,All cancers,624,GNB,Guinea-Bissau,0,100.34,76.46,Africa
+39,All cancers,232,ERI,Eritrea,0,99.82,72.52,Africa
+39,All cancers,728,SSD,South Sudan,0,99.42,76.28,Africa
+39,All cancers,729,SDN,Sudan,0,95.63,64.44,Africa
+39,All cancers,262,DJI,Djibouti,0,90.71,66.73,Africa
+39,All cancers,132,CPV,Cape Verde,0,87.01,58.34,Africa
+39,All cancers,562,NER,Niger,0,83.65,66.14,Africa
+39,All cancers,646,RWA,Rwanda,0,83.22,59.44,Africa
+39,All cancers,178,COG,"Congo, Republic of",0,80.73,52.89,Africa
+39,All cancers,270,GMB,The Republic of the Gambia,0,79.17,62.69,Africa
+39,All cancers,694,SLE,Sierra Leone,0,35.9,25.51,Africa
+39,All cancers,392,JPN,Japan,0,267.08,78.63,Asia
+39,All cancers,376,ISR,Israel,0,245.78,83.2,Asia
+39,All cancers,496,MNG,Mongolia,0,235.79,181.52,Asia
+39,All cancers,410,KOR,"Korea, Republic of",0,234.7,77.01,Asia
+39,All cancers,702,SGP,Singapore,0,231.06,110.78,Asia
+39,All cancers,792,TUR,Türkiye,0,225.86,116.1,Asia
+39,All cancers,156,CHN,China,0,201.61,96.47,Asia
+39,All cancers,051,ARM,Armenia,0,201.57,116.69,Asia
+39,All cancers,268,GEO,Georgia,0,197.5,111.69,Asia
+39,All cancers,096,BRN,Brunei Darussalam,0,192.22,104.58,Asia
+39,All cancers,608,PHL,Philippines,0,185.4,112.89,Asia
+39,All cancers,422,LBN,Lebanon,0,168.78,92.27,Asia
+39,All cancers,408,PRK,"Korea, Democratic People Republic of",0,166.06,113.87,Asia
+39,All cancers,935,,Asia,0,164.36,87.96,Asia
+39,All cancers,398,KAZ,Kazakhstan,0,162.28,92.08,Asia
+39,All cancers,418,LAO,"Lao People's Democratic Republic",0,154.53,109.88,Asia
+39,All cancers,764,THA,Thailand,0,154.36,93.39,Asia
+39,All cancers,400,JOR,Jordan,0,152.57,84.27,Asia
+39,All cancers,031,AZE,Azerbaijan,0,152.34,93.16,Asia
+39,All cancers,275,PSE,Gaza Strip and West Bank,0,152.25,97.99,Asia
+39,All cancers,704,VNM,Viet Nam,0,150.75,99.04,Asia
+39,All cancers,364,IRN,"Iran, Islamic Republic of",0,148.98,96.53,Asia
+39,All cancers,458,MYS,Malaysia,0,142.13,86.26,Asia
+39,All cancers,760,SYR,Syrian Arab Republic,0,138.57,91,Asia
+39,All cancers,116,KHM,Cambodia,0,138.3,99.27,Asia
+39,All cancers,360,IDN,Indonesia,0,136.93,82.53,Asia
+39,All cancers,368,IRQ,Iraq,0,136.56,84.39,Asia
+39,All cancers,104,MMR,Myanmar,0,135.5,97.06,Asia
+39,All cancers,417,KGZ,Kyrgyzstan,0,125.77,82.83,Asia
+39,All cancers,795,TKM,Turkmenistan,0,122.73,82.5,Asia
+39,All cancers,048,BHR,Bahrain,0,113.76,58.59,Asia
+39,All cancers,860,UZB,Uzbekistan,0,112.67,71.46,Asia
+39,All cancers,414,KWT,Kuwait,0,111.4,60.15,Asia
+39,All cancers,144,LKA,Sri Lanka,0,106.94,58.95,Asia
+39,All cancers,004,AFG,Afghanistan,0,106.24,78.73,Asia
+39,All cancers,050,BGD,Bangladesh,0,105.59,74.65,Asia
+39,All cancers,586,PAK,Pakistan,0,105.58,69.8,Asia
+39,All cancers,462,MDV,Maldives,0,105.31,58.83,Asia
+39,All cancers,512,OMN,Oman,0,105.25,66.29,Asia
+39,All cancers,784,ARE,United Arab Emirates,0,105.12,54.35,Asia
+39,All cancers,356,IND,India,0,98.54,64.35,Asia
+39,All cancers,762,TJK,Tajikistan,0,91.72,63.9,Asia
+39,All cancers,064,BTN,Bhutan,0,87.62,67.16,Asia
+39,All cancers,682,SAU,Saudi Arabia,0,87.09,46.19,Asia
+39,All cancers,626,TLS,Timor-Leste,0,84.45,55.44,Asia
+39,All cancers,887,YEM,Yemen,0,83.13,63.71,Asia
+39,All cancers,634,QAT,Qatar,0,82.37,46.17,Asia
+39,All cancers,524,NPL,Nepal,0,81.6,55.29,Asia
+39,All cancers,208,DNK,Denmark,0,374.69,106.48,Europe
+39,All cancers,578,NOR,Norway,0,357.9,91.81,Europe
+39,All cancers,372,IRL,Ireland,0,344.7,98.69,Europe
+39,All cancers,528,NLD,The Netherlands,0,341.44,103.22,Europe
+39,All cancers,250,FRA,France (metropolitan),0,339.02,106.67,Europe
+39,All cancers,348,HUN,Hungary,0,336.74,143.72,Europe
+39,All cancers,056,BEL,Belgium,0,324.67,92.43,Europe
+39,All cancers,191,HRV,Croatia,0,313.4,125.73,Europe
+39,All cancers,752,SWE,Sweden,0,310.03,85.21,Europe
+39,All cancers,826,GBR,United Kingdom,0,307.82,98.28,Europe
+39,All cancers,705,SVN,Slovenia,0,305.14,116.7,Europe
+39,All cancers,620,PRT,Portugal,0,294.63,108.95,Europe
+39,All cancers,756,CHE,Switzerland,0,292.72,78.79,Europe
+39,All cancers,196,CYP,Cyprus,0,292.27,111.53,Europe
+39,All cancers,428,LVA,Latvia,0,288.89,122.93,Europe
+39,All cancers,440,LTU,Lithuania,0,287.93,124.99,Europe
+39,All cancers,380,ITA,Italy,0,284.49,94.17,Europe
+39,All cancers,703,SVK,Slovakia,0,283.3,125.7,Europe
+39,All cancers,470,MLT,Malta,0,282.52,81.57,Europe
+39,All cancers,233,EST,Estonia,0,282.49,114.44,Europe
+39,All cancers,203,CZE,Czechia,0,280.9,103.76,Europe
+39,All cancers,908,,Europe,0,279.98,106.28,Europe
+39,All cancers,246,FIN,Finland,0,276.85,79.81,Europe
+39,All cancers,642,ROU,Romania,0,276.46,132.54,Europe
+39,All cancers,724,ESP,Spain,0,274.58,88.78,Europe
+39,All cancers,276,DEU,Germany,0,274.24,99.69,Europe
+39,All cancers,442,LUX,Luxembourg,0,273.31,77.25,Europe
+39,All cancers,112,BLR,Belarus,0,273.23,123.5,Europe
+39,All cancers,352,ISL,Iceland,0,268.28,83.2,Europe
+39,All cancers,616,POL,Poland,0,262.76,133.08,Europe
+39,All cancers,300,GRC,Greece,0,258.66,100.59,Europe
+39,All cancers,040,AUT,Austria,0,258.47,91.32,Europe
+39,All cancers,688,SRB,Serbia,0,250.4,128.4,Europe
+39,All cancers,643,RUS,Russian Federation,0,248.06,110.49,Europe
+39,All cancers,499,MNE,Montenegro,0,237.99,121.38,Europe
+39,All cancers,498,MDA,Moldova,0,232.15,122.79,Europe
+39,All cancers,100,BGR,Bulgaria,0,222.03,114.19,Europe
+39,All cancers,070,BIH,Bosnia Herzegovina,0,218.58,116.08,Europe
+39,All cancers,807,MKD,North Macedonia,0,206.91,112.49,Europe
+39,All cancers,804,UKR,Ukraine,0,199.85,101.08,Europe
+39,All cancers,008,ALB,Albania,0,160.77,90.53,Europe
+39,All cancers,858,URY,Uruguay,0,279.91,128.25,Latin America and the Caribbean
+39,All cancers,312,GLP,"France, Guadeloupe",0,253.9,93.04,Latin America and the Caribbean
+39,All cancers,630,PRI,Puerto Rico,0,226.63,74.98,Latin America and the Caribbean
+39,All cancers,474,MTQ,"France, Martinique",0,224.16,79.31,Latin America and the Caribbean
+39,All cancers,192,CUB,Cuba,0,220.76,110.2,Latin America and the Caribbean
+39,All cancers,032,ARG,Argentina,0,215.82,102.69,Latin America and the Caribbean
+39,All cancers,076,BRA,Brazil,0,214.43,91.25,Latin America and the Caribbean
+39,All cancers,052,BRB,Barbados,0,205.34,113.26,Latin America and the Caribbean
+39,All cancers,254,GUF,French Guyana,0,204.28,82.55,Latin America and the Caribbean
+39,All cancers,388,JAM,Jamaica,0,199.58,116.58,Latin America and the Caribbean
+39,All cancers,044,BHS,Bahamas,0,192.73,109.23,Latin America and the Caribbean
+39,All cancers,600,PRY,Paraguay,0,192.24,89.87,Latin America and the Caribbean
+39,All cancers,152,CHL,Chile,0,188.67,90.13,Latin America and the Caribbean
+39,All cancers,780,TTO,Trinidad and Tobago,0,186.71,96.83,Latin America and the Caribbean
+39,All cancers,904,,Latin America and the Caribbean,0,185.95,85.48,Latin America and the Caribbean
+39,All cancers,862,VEN,Venezuela,0,184.79,91.31,Latin America and the Caribbean
+39,All cancers,188,CRI,Costa Rica,0,177.73,75.33,Latin America and the Caribbean
+39,All cancers,170,COL,Colombia,0,177.62,81.36,Latin America and the Caribbean
+39,All cancers,604,PER,Peru,0,173.81,82.37,Latin America and the Caribbean
+39,All cancers,740,SUR,Suriname,0,169.46,91.51,Latin America and the Caribbean
+39,All cancers,214,DOM,Dominican Republic,0,167.02,92.01,Latin America and the Caribbean
+39,All cancers,662,LCA,Saint Lucia,0,166.77,76.1,Latin America and the Caribbean
+39,All cancers,591,PAN,Panama,0,154.86,65.71,Latin America and the Caribbean
+39,All cancers,218,ECU,Ecuador,0,152.7,75.96,Latin America and the Caribbean
+39,All cancers,068,BOL,Bolivia,0,143.77,85.07,Latin America and the Caribbean
+39,All cancers,328,GUY,Guyana,0,142.49,70.19,Latin America and the Caribbean
+39,All cancers,332,HTI,Haiti,0,141.05,92.22,Latin America and the Caribbean
+39,All cancers,484,MEX,Mexico,0,140.93,63.51,Latin America and the Caribbean
+39,All cancers,558,NIC,Nicaragua,0,133.48,76.77,Latin America and the Caribbean
+39,All cancers,340,HND,Honduras,0,127.96,83.25,Latin America and the Caribbean
+39,All cancers,222,SLV,El Salvador,0,127.11,64.73,Latin America and the Caribbean
+39,All cancers,320,GTM,Guatemala,0,121.77,71.14,Latin America and the Caribbean
+39,All cancers,084,BLZ,Belize,0,114.72,59.87,Latin America and the Caribbean
+39,All cancers,840,USA,United States of America,0,366.95,82.33,Northern America
+39,All cancers,905,,Northern America,0,364.67,83.9,Northern America
+39,All cancers,124,CAN,Canada,0,345.94,96.37,Northern America
+39,All cancers,036,AUS,Australia,0,462.51,84.62,Oceania
+39,All cancers,554,NZL,New Zealand,0,427.32,100.23,Oceania
+39,All cancers,909,,Oceania,0,409.03,93.38,Oceania
+39,All cancers,540,NCL,New Caledonia,0,287.55,113.16,Oceania
+39,All cancers,882,WSM,Samoa,0,240.01,126.26,Oceania
+39,All cancers,258,PYF,French Polynesia,0,228.07,122.26,Oceania
+39,All cancers,598,PNG,Papua New Guinea,0,188.69,119.83,Oceania
+39,All cancers,242,FJI,Fiji,0,174.79,98.48,Oceania
+39,All cancers,316,GUM,Guam,0,167.19,101.12,Oceania
+39,All cancers,090,SLB,Solomon Islands,0,134.8,74.62,Oceania
+39,All cancers,548,VUT,Vanuatu,0,108.16,67.8,Oceania
