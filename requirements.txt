@@ -12,3 +12,4 @@ flask-caching
 python-dotenv
 google-generativeai
 beautifulsoup4
+gunicorn
