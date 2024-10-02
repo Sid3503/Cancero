@@ -3,7 +3,7 @@ from keras.models import load_model
 from keras.optimizers import Adam
 from PIL import Image
 
-modelSavePath = 'C:/Users/Siddharth/Downloads/xxxxx/xxxxx/my_model3.h5'
+modelSavePath = 'my_model3.h5'
 
 # testImagePath = 'Invasive1.jpg'
 
