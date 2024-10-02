@@ -137,15 +137,15 @@ def news():
 
 @app.route('/charts', methods=['GET', 'POST'])
 def charts():
-    asr_df = pd.read_csv('C:/Users/Siddharth/Desktop/devFinal/data/dataset-asr-inc-both-sexes-in-2022-world.csv')
+    asr_df = pd.read_csv('data/dataset-asr-inc-both-sexes-in-2022-world.csv')
 
-    mortality_df = pd.read_csv('C:/Users/Siddharth/Desktop/devFinal/data/dataset-asr-mort-both-sexes-in-2022-world.csv')
+    mortality_df = pd.read_csv('data/dataset-asr-mort-both-sexes-in-2022-world.csv')
 
     asr_data = asr_df[['Label', 'ASR (World)']].dropna()
 
     mortality_data = mortality_df[['Label', 'ASR (World)']].dropna()
 
-    prevalent_all_df = pd.read_csv('C:/Users/Siddharth/Desktop/devFinal/data/dataset-estimated-number-of-prevalent-cases-1-year-both-sexes-in-2022-all-cancers.csv')
+    prevalent_all_df = pd.read_csv('data/dataset-estimated-number-of-prevalent-cases-1-year-both-sexes-in-2022-all-cancers.csv')
     prevalent_all_df = prevalent_all_df.drop_duplicates(subset='Label')
 
     pie_all_labels = prevalent_all_df['Label'].tolist()
@@ -169,7 +169,7 @@ def charts():
         pie_all_colors = (pie_all_colors * factor)[:len(pie_all_labels)]
 
     
-    prevalent_cancer_df = pd.read_csv('C:/Users/Siddharth/Desktop/devFinal/data/dataset-estimated-number-of-prevalent-cases-1-year-both-sexes-in-2022-continents.csv')
+    prevalent_cancer_df = pd.read_csv('data/dataset-estimated-number-of-prevalent-cases-1-year-both-sexes-in-2022-continents.csv')
 
     prevalent_cancer_df = prevalent_cancer_df.drop_duplicates(subset='Label')
 
@@ -196,11 +196,11 @@ def charts():
     asr_chart_data = asr_data.to_dict(orient='records')
     mortality_chart_data = mortality_data.to_dict(orient='records')
 
-    scatter_df = pd.read_csv("C:/Users/Siddharth/Desktop/devFinal/data/dataset-mort-asr-world-vs-inc-asr-world-both-sexes-in-2022-all-cancers.csv")
+    scatter_df = pd.read_csv("data/dataset-mort-asr-world-vs-inc-asr-world-both-sexes-in-2022-all-cancers.csv")
 
     scatter_data = scatter_df[['Population', 'Incidence - ASR (World)', 'Mortality - ASR (World)']].to_dict(orient='records')
 
-    df_full = pd.read_csv("C:/Users/Siddharth/Desktop/devFinal/data/dataset-asr-inc-both-sexes-in-2022-world-vs-asia.csv")
+    df_full = pd.read_csv("data/dataset-asr-inc-both-sexes-in-2022-world-vs-asia.csv")
     asr_asia_values = df_full.groupby("Label")["ASR (World)"].transform(lambda x: x.iloc[1] if len(x) > 1 else None)
 
     df_full["ASR Asia"] = asr_asia_values
