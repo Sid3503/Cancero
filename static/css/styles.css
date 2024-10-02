@@ -1,0 +1,188 @@
+/* static/css/styles.css */
+
+/* Existing general styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Light grey background for the main page */
+    color: #333; /* Dark text color */
+}
+
+/* Container for content */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto; /* Center the container */
+    padding: 20px;
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: #2c3e50; /* Dark background for navbar */
+    color: white; /* White text color for navbar */
+    padding: 15px 0;
+    text-align: center; /* Center text in navbar */
+    position: sticky; /* Sticky navbar */
+    top: 0;
+    z-index: 1000; /* Ensure navbar is above other content */
+}
+
+.navbar h1 {
+    margin: 0;
+    font-size: 2em; /* Heading font size */
+}
+
+/* Form Styling */
+.form-container {
+    background-color: white; /* White background for form container */
+    padding: 30px; /* Padding for form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    margin: 20px 0; /* Margin for spacing */
+    text-align: center; /* Center form content */
+}
+
+/* Styling for form labels */
+.form-label {
+    font-weight: bold; /* Bold labels */
+    display: block; /* Full width */
+    margin-bottom: 5px; /* Space below label */
+}
+
+/* Grid layout for the upload sections */
+.upload-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two-column layout */
+    gap: 20px; /* Space between columns */
+}
+
+.upload-section {
+    border: 1px solid #ddd; /* Light border */
+    padding: 20px; /* Padding inside section */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+.upload-section h2 {
+    text-align: center; /* Center heading */
+    margin-bottom: 20px; /* Space below heading */
+}
+
+/* Adjusting input field width */
+.input-field {
+    width: 50%; /* Set width of input fields */
+    padding: 10px; /* Padding inside input */
+    margin: 10px 0; /* Margin around input */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #ccc; /* Light border */
+    font-size: 1em; /* Font size */
+    max-width: 400px; /* Max width for inputs */
+}
+
+/* Global Custom Button Styling */
+.btn-custom {
+    background-color: white; /* Button background */
+    color: #007bff; /* Text color */
+    border: 2px solid white; /* Border color */
+    padding: 10px 20px; /* Button padding */
+    font-size: 16px; /* Font size */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    display: inline-flex; /* Flex display for icons */
+    align-items: center; /* Center items */
+    justify-content: center; /* Center content */
+    transition: background-color 0.3s, transform 0.2s; /* Transitions */
+    text-decoration: none; /* No underline for links */
+}
+
+/* Hover and Active States */
+.btn-custom:hover {
+    background-color: #cec8c8cd; /* Light grey on hover */
+    color: #0056b3; /* Darker blue text on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.btn-custom:active {
+    background-color: #004085; /* Darker blue on click */
+    transform: scale(1); /* Reset scale */
+}
+
+/* Focus State for Accessibility */
+.btn-custom:focus {
+    outline: none; /* No default outline */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Custom focus ring */
+}
+
+/* Results container styling */
+.results-container {
+    max-width: 1000px; /* Max width for results */
+    margin: 40px auto 20px auto; /* Margin for spacing */
+    padding: 20px; /* Padding for results */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    background-color: #ffffff; /* White background */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .doctors-scrollable {
+        max-height: 600px; /* Reduce height on smaller screens */
+    }
+    .card-image-top {
+        height: 200px; /* Adjust image height for smaller screens */
+    }
+    .doctor-card {
+        flex-direction: column; /* Stack image and text vertically */
+        align-items: flex-start; /* Align to start */
+    }
+    .doctor-image {
+        margin-bottom: 10px; /* Add margin below image */
+    }
+    .wide-card {
+        width: 100%; /* Full width on small screens */
+    }
+}
+
+/* Optional: Enhance About Doctor Link */
+.about-link {
+    display: inline-block; /* Keep inline */
+    max-width: 100%; /* Prevent overflow */
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Ellipsis for overflow */
+    color: blue; /* Link color */
+    text-decoration: none; /* No underline */
+    font-style: italic; /* Italicize text */
+    transition: color 0.3s; /* Smooth color transition */
+}
+
+.about-link:hover {
+    text-decoration: underline; /* Underline on hover */
+    color: white; /* Darker blue on hover */
+}
+
+/* Increase Width of News Cards */
+.wide-card {
+    width: 100%; /* Full width */
+}
+
+
+/* New Chart Canvas Styling */
+.chart-canvas {
+    width: 100% !important;
+    height: 800px !important; /* Adjust the height as needed */
+    max-height: 400px; /* Optional: Maximum height to prevent excessive scaling */
+}
+
+/* Chart Card Hover Effect */
+.chart-card {
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transitions */
+}
+
+.chart-card:hover {
+    transform: translateY(-10px); /* Slight lift on hover */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
