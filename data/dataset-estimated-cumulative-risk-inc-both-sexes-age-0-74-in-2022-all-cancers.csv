@@ -1,0 +1,186 @@
+Cancer id,Cancer label,Population code (ISO/UN),Population,Alpha‑3 code,Sex,Type,Cum. risk
+39,All cancers,004,Afghanistan,AFG,0,0,11.19
+39,All cancers,008,Albania,ALB,0,0,16.03
+39,All cancers,012,Algeria,DZA,0,0,14.61
+39,All cancers,024,Angola,AGO,0,0,14.02
+39,All cancers,031,Azerbaijan,AZE,0,0,15.86
+39,All cancers,032,Argentina,ARG,0,0,22.12
+39,All cancers,036,Australia,AUS,0,0,41.22
+39,All cancers,040,Austria,AUT,0,0,25.98
+39,All cancers,044,Bahamas,BHS,0,0,19.57
+39,All cancers,048,Bahrain,BHR,0,0,11.89
+39,All cancers,050,Bangladesh,BGD,0,0,11.29
+39,All cancers,051,Armenia,ARM,0,0,21.35
+39,All cancers,052,Barbados,BRB,0,0,21.1
+39,All cancers,056,Belgium,BEL,0,0,31.42
+39,All cancers,064,Bhutan,BTN,0,0,9.96
+39,All cancers,068,Bolivia,BOL,0,0,14.69
+39,All cancers,070,Bosnia Herzegovina,BIH,0,0,22.85
+39,All cancers,072,Botswana,BWA,0,0,11.84
+39,All cancers,076,Brazil,BRA,0,0,21.51
+39,All cancers,084,Belize,BLZ,0,0,11.55
+39,All cancers,090,Solomon Islands,SLB,0,0,13.11
+39,All cancers,096,Brunei Darussalam,BRN,0,0,19.69
+39,All cancers,100,Bulgaria,BGR,0,0,23.09
+39,All cancers,104,Myanmar,MMR,0,0,13.91
+39,All cancers,108,Burundi,BDI,0,0,13.42
+39,All cancers,112,Belarus,BLR,0,0,28.56
+39,All cancers,116,Cambodia,KHM,0,0,13.96
+39,All cancers,120,Cameroon,CMR,0,0,13.13
+39,All cancers,124,Canada,CAN,0,0,32.23
+39,All cancers,132,Cape Verde,CPV,0,0,9.81
+39,All cancers,140,Central African Republic,CAF,0,0,10.82
+39,All cancers,144,Sri Lanka,LKA,0,0,11.41
+39,All cancers,148,Chad,TCD,0,0,13.05
+39,All cancers,152,Chile,CHL,0,0,19.06
+39,All cancers,156,China,CHN,0,0,20.46
+39,All cancers,170,Colombia,COL,0,0,17.93
+39,All cancers,174,Comoros,COM,0,0,11.49
+39,All cancers,178,"Congo, Republic of",COG,0,0,8.89
+39,All cancers,180,"Congo, Democratic Republic of",COD,0,0,10.9
+39,All cancers,188,Costa Rica,CRI,0,0,17.77
+39,All cancers,191,Croatia,HRV,0,0,30.73
+39,All cancers,192,Cuba,CUB,0,0,22.71
+39,All cancers,196,Cyprus,CYP,0,0,27.49
+39,All cancers,203,Czechia,CZE,0,0,28.25
+39,All cancers,204,Benin,BEN,0,0,10.96
+39,All cancers,208,Denmark,DNK,0,0,34.94
+39,All cancers,214,Dominican Republic,DOM,0,0,17.19
+39,All cancers,218,Ecuador,ECU,0,0,15
+39,All cancers,222,El Salvador,SLV,0,0,12.54
+39,All cancers,226,Equatorial Guinea,GNQ,0,0,11.36
+39,All cancers,231,Ethiopia,ETH,0,0,10.91
+39,All cancers,232,Eritrea,ERI,0,0,10.44
+39,All cancers,233,Estonia,EST,0,0,29.08
+39,All cancers,242,Fiji,FJI,0,0,17.16
+39,All cancers,246,Finland,FIN,0,0,27
+39,All cancers,250,France (metropolitan),FRA,0,0,32.69
+39,All cancers,254,French Guyana,GUF,0,0,21.7
+39,All cancers,258,French Polynesia,PYF,0,0,23.81
+39,All cancers,262,Djibouti,DJI,0,0,9.76
+39,All cancers,266,Gabon,GAB,0,0,11.8
+39,All cancers,268,Georgia,GEO,0,0,20.8
+39,All cancers,270,The Republic of the Gambia,GMB,0,0,7.85
+39,All cancers,275,Gaza Strip and West Bank,PSE,0,0,15.9
+39,All cancers,276,Germany,DEU,0,0,27.2
+39,All cancers,288,Ghana,GHA,0,0,12.18
+39,All cancers,300,Greece,GRC,0,0,26.05
+39,All cancers,312,"France, Guadeloupe",GLP,0,0,26.28
+39,All cancers,316,Guam,GUM,0,0,17.68
+39,All cancers,320,Guatemala,GTM,0,0,12.48
+39,All cancers,324,Guinea,GIN,0,0,11.76
+39,All cancers,328,Guyana,GUY,0,0,14.85
+39,All cancers,332,Haiti,HTI,0,0,12.69
+39,All cancers,340,Honduras,HND,0,0,13.39
+39,All cancers,348,Hungary,HUN,0,0,33.03
+39,All cancers,352,Iceland,ISL,0,0,26.62
+39,All cancers,356,India,IND,0,0,10.63
+39,All cancers,360,Indonesia,IDN,0,0,13.97
+39,All cancers,364,"Iran, Islamic Republic of",IRN,0,0,15.51
+39,All cancers,368,Iraq,IRQ,0,0,14.13
+39,All cancers,372,Ireland,IRL,0,0,32.3
+39,All cancers,376,Israel,ISR,0,0,24.39
+39,All cancers,380,Italy,ITA,0,0,27.7
+39,All cancers,384,"Côte d'Ivoire",CIV,0,0,14.46
+39,All cancers,388,Jamaica,JAM,0,0,20.3
+39,All cancers,392,Japan,JPN,0,0,26.41
+39,All cancers,398,Kazakhstan,KAZ,0,0,17.94
+39,All cancers,400,Jordan,JOR,0,0,15.7
+39,All cancers,404,Kenya,KEN,0,0,15.6
+39,All cancers,408,"Korea, Democratic People Republic of",PRK,0,0,17.7
+39,All cancers,410,"Korea, Republic of",KOR,0,0,23.35
+39,All cancers,414,Kuwait,KWT,0,0,11.75
+39,All cancers,417,Kyrgyzstan,KGZ,0,0,13.71
+39,All cancers,418,"Lao People's Democratic Republic",LAO,0,0,15.88
+39,All cancers,422,Lebanon,LBN,0,0,17.26
+39,All cancers,426,Lesotho,LSO,0,0,11.19
+39,All cancers,428,Latvia,LVA,0,0,29.69
+39,All cancers,430,Liberia,LBR,0,0,11.94
+39,All cancers,434,Libya,LBY,0,0,13.26
+39,All cancers,440,Lithuania,LTU,0,0,29.31
+39,All cancers,442,Luxembourg,LUX,0,0,25.68
+39,All cancers,450,Madagascar,MDG,0,0,11.91
+39,All cancers,454,Malawi,MWI,0,0,15.53
+39,All cancers,458,Malaysia,MYS,0,0,14.4
+39,All cancers,462,Maldives,MDV,0,0,10.92
+39,All cancers,466,Mali,MLI,0,0,14.47
+39,All cancers,470,Malta,MLT,0,0,27.22
+39,All cancers,474,"France, Martinique",MTQ,0,0,23.74
+39,All cancers,478,Mauritania,MRT,0,0,11.09
+39,All cancers,480,Mauritius,MUS,0,0,14.9
+39,All cancers,484,Mexico,MEX,0,0,14.41
+39,All cancers,496,Mongolia,MNG,0,0,24.65
+39,All cancers,498,Moldova,MDA,0,0,25.1
+39,All cancers,499,Montenegro,MNE,0,0,24.7
+39,All cancers,504,Morocco,MAR,0,0,15.52
+39,All cancers,508,Mozambique,MOZ,0,0,12.3
+39,All cancers,512,Oman,OMN,0,0,11.18
+39,All cancers,516,Namibia,NAM,0,0,18.8
+39,All cancers,524,Nepal,NPL,0,0,8.65
+39,All cancers,528,The Netherlands,NLD,0,0,32.77
+39,All cancers,540,New Caledonia,NCL,0,0,28.98
+39,All cancers,548,Vanuatu,VUT,0,0,11.58
+39,All cancers,554,New Zealand,NZL,0,0,38.85
+39,All cancers,558,Nicaragua,NIC,0,0,13.37
+39,All cancers,562,Niger,NER,0,0,8.47
+39,All cancers,566,Nigeria,NGA,0,0,12.12
+39,All cancers,578,Norway,NOR,0,0,33.64
+39,All cancers,586,Pakistan,PAK,0,0,11.02
+39,All cancers,591,Panama,PAN,0,0,15.66
+39,All cancers,598,Papua New Guinea,PNG,0,0,18.65
+39,All cancers,600,Paraguay,PRY,0,0,19.08
+39,All cancers,604,Peru,PER,0,0,16.75
+39,All cancers,608,Philippines,PHL,0,0,19.15
+39,All cancers,616,Poland,POL,0,0,26.91
+39,All cancers,620,Portugal,PRT,0,0,28.58
+39,All cancers,624,Guinea-Bissau,GNB,0,0,10.86
+39,All cancers,626,Timor-Leste,TLS,0,0,9
+39,All cancers,630,Puerto Rico,PRI,0,0,23.01
+39,All cancers,634,Qatar,QAT,0,0,9.16
+39,All cancers,638,"France, La Réunion",REU,0,0,21.13
+39,All cancers,642,Romania,ROU,0,0,28.09
+39,All cancers,643,Russian Federation,RUS,0,0,26.14
+39,All cancers,646,Rwanda,RWA,0,0,8.99
+39,All cancers,662,Saint Lucia,LCA,0,0,18.02
+39,All cancers,678,Sao Tome and Principe,STP,0,0,11.93
+39,All cancers,682,Saudi Arabia,SAU,0,0,9.06
+39,All cancers,686,Senegal,SEN,0,0,11.79
+39,All cancers,688,Serbia,SRB,0,0,25.58
+39,All cancers,694,Sierra Leone,SLE,0,0,4.02
+39,All cancers,702,Singapore,SGP,0,0,22.91
+39,All cancers,703,Slovakia,SVK,0,0,28.78
+39,All cancers,704,Viet Nam,VNM,0,0,15.99
+39,All cancers,705,Slovenia,SVN,0,0,30.23
+39,All cancers,706,Somalia,SOM,0,0,12.42
+39,All cancers,710,South Africa,ZAF,0,0,20.46
+39,All cancers,716,Zimbabwe,ZWE,0,0,21.15
+39,All cancers,724,Spain,ESP,0,0,27.88
+39,All cancers,728,South Sudan,SSD,0,0,10.41
+39,All cancers,729,Sudan,SDN,0,0,9.88
+39,All cancers,740,Suriname,SUR,0,0,17.43
+39,All cancers,748,Eswatini,SWZ,0,0,13.14
+39,All cancers,752,Sweden,SWE,0,0,30.14
+39,All cancers,756,Switzerland,CHE,0,0,28.67
+39,All cancers,760,Syrian Arab Republic,SYR,0,0,13.71
+39,All cancers,762,Tajikistan,TJK,0,0,9.38
+39,All cancers,764,Thailand,THA,0,0,16.11
+39,All cancers,768,Togo,TGO,0,0,11.25
+39,All cancers,780,Trinidad and Tobago,TTO,0,0,18.46
+39,All cancers,784,United Arab Emirates,ARE,0,0,11.63
+39,All cancers,788,Tunisia,TUN,0,0,14.18
+39,All cancers,792,Türkiye,TUR,0,0,22.69
+39,All cancers,795,Turkmenistan,TKM,0,0,12.89
+39,All cancers,800,Uganda,UGA,0,0,15.77
+39,All cancers,804,Ukraine,UKR,0,0,21.56
+39,All cancers,807,North Macedonia,MKD,0,0,22.18
+39,All cancers,818,Egypt,EGY,0,0,17.06
+39,All cancers,826,United Kingdom,GBR,0,0,29.65
+39,All cancers,834,"Tanzania, United Republic of",TZA,0,0,14.56
+39,All cancers,840,United States of America,USA,0,0,34.25
+39,All cancers,854,Burkina Faso,BFA,0,0,13.85
+39,All cancers,858,Uruguay,URY,0,0,27.76
+39,All cancers,860,Uzbekistan,UZB,0,0,12.26
+39,All cancers,862,Venezuela,VEN,0,0,18.3
+39,All cancers,882,Samoa,WSM,0,0,25.49
+39,All cancers,887,Yemen,YEM,0,0,8.36
+39,All cancers,894,Zambia,ZMB,0,0,16.2
