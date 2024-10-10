@@ -1,69 +1,82 @@
+# models.py
+
 import numpy as np
+import tensorflow as tf
 from keras.models import load_model
 from keras.optimizers import Adam
 from PIL import Image
 
-modelSavePath = 'my_model3.h5'
+# Path to the model file
+modelSavePath = "C:/Users/Siddharth/Desktop/devFinal/lung_colon_model1.h5"
+model_1 = load_model(modelSavePath)
 
-# testImagePath = 'Invasive1.jpg'
 
-classes = ["Benign", "InSitu", "Invasive", "Normal"]
 
-def predict_cancer(img_path):
-    """
-    Predicts the cancer class from the given image path.
+def softmax(logits):
+    exp_logits = np.exp(logits - np.max(logits))
+    return exp_logits / exp_logits.sum(axis=1, keepdims=True)
 
-    Parameters:
-        img_path (str): Path to the image file.
 
-    Returns:
-        str: Predicted cancer class.
-    """
-    model = load_model(modelSavePath, compile=False)
-    model.compile(optimizer=Adam(), loss='categorical_crossentropy')
+def pred_and_plot(filename, img_shape=224):
+    class_names = ['colon_adenocarcinoma', 'colon_benign_tissue',
+        'lung_adenocarcinoma', 'lung_benign_tissue',
+        'lung_squamous_cell_carcinoma']
 
-    img = Image.open(img_path)
-    z = np.asarray(img, dtype=np.int8)
+    # Import the image and preprocess it
+    img = tf.io.read_file(filename)
+    img = tf.image.decode_image(img, channels=3)
+    img = tf.image.resize(img, size=[img_shape, img_shape])
+    img = img / 255.
+
+    pred = model_1.predict(tf.expand_dims(img, axis=0))
+
+    # Convert to percentages and round to two decimal places
+    pred_percentages = np.round(pred * 100, 2)
+
+    # Get the predicted class (the class with the highest probability)
+    pred_class = class_names[pred_percentages.argmax()]
+
+    return pred_class, pred_percentages.tolist(), class_names
+
+
+model2_save_path = "C:/Users/Siddharth/Desktop/devFinal/brain-lung-breast.h5"
+model_2 = load_model(model2_save_path)
+
+
+def predict_cancer_for_ctmri(filename, img_shape=224):
+    threshold = 0.9
+
+    class_names = [
+        'brain_glioma', 
+        'brain_meningioma', 
+        'brain_notumor', 
+        'brain_pituitary',
+        'breast_cancer', 
+        'breast_non_cancer', 
+        'lung_benign', 
+        'lung_malignant',
+        'lung_normal'
+    ]
     
-    crops = []
-    for i in range(3):
-        for j in range(4):
-            crop = z[512 * i:512 * (i + 1), 512 * j:512 * (j + 1), :]
-            crops.append(crop)
+    # Import the image and preprocess it
+    img = tf.io.read_file(filename)
+    img = tf.image.decode_image(img, channels=3)
+    img = tf.image.resize(img, size=[img_shape, img_shape])
+    img = img / 255.
 
-    crops = np.array(crops, np.float16) / 255.0  # Normalize pixel values
+    # Get predictions
+    pred = model_2.predict(tf.expand_dims(img, axis=0))
 
-    compProbs = [0] * len(classes)
+    preds = softmax(pred)
 
-    for crop in crops:
-        x = np.expand_dims(crop, axis=0)
-        softMaxPred = model.predict(x, verbose=0)
-        
-        z_exp = [np.math.exp(i) for i in softMaxPred[0]]
-        sum_z_exp = sum(z_exp)
-        probs = [(i / sum_z_exp) * 100 for i in z_exp]
+    # Convert to percentages and round to two decimal places
+    pred_percentages = np.round(preds * 100, 2).flatten()
 
-        maxI = np.argmax(probs)
-        compProbs[maxI] += probs[maxI]
+    # Get the predicted class (the class with the highest probability)
+    pred_class = class_names[pred_percentages.argmax()]
 
-    highest_prob_idx = np.argmax(compProbs)
-    highest_class = classes[highest_prob_idx]
+    return pred_class, pred_percentages.tolist(), class_names, pred
 
-    return highest_class
-
-
-
-
-def predict_cancer_from_csv(csv_path):
-    """
-    Predict cancer risk from CSV data using a trained ANN model.
-    
-    Parameters:
-        csv_path (str): The path to the CSV file.
-    
-    Returns:
-        str: The predicted cancer risk.
-    """
-    # Implement your CSV prediction logic here
-    # Placeholder implementation
-    return "Predicted cancer risk: High"
+# Example usage
+# pred_class, _, _ = predict_cancer_for_ctmri("C:/Users/Siddharth/Downloads/download (1).jpeg")
+# print(pred_class)
