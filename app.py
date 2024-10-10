@@ -18,9 +18,7 @@ import logging
 import pandas as pd
 from datetime import datetime
 import urllib.parse
-from openai import OpenAI
 
-client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads/'
@@ -71,17 +69,6 @@ def cancer_journey_stories():
      # Call the function to generate stories
     return render_template('cancer-journey-stories.html')
 
-
-@app.route('/get_recommendations', methods=['POST'])
-def get_recommendations():
-    cancer_type = request.form['cancer_type']
-    treatment_plan = request.form['treatment_plan']
-    preferences = request.form['preferences']  # Get user preferences
-
-    advisor = NutritionAdvisor(cancer_type, treatment_plan, preferences)
-    recommendations = advisor.get_recommendations()
-
-    return render_template('results.html', recommendations=recommendations)
 
 # Home Route
 @app.route('/')
