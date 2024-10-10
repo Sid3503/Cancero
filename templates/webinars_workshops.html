@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webinars and Workshops</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-sVn+g9j+zFK8JHbV+jA6gk5JxkC1+lBqik2N6mHHQvQ+J+m5Z5hQoIMQO1ZRgWKh0G2g8O7QeONRhBzqfV4Xlw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- AOS CSS for Animations -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS with data attributes for themes -->
+    <link id="theme-stylesheet" rel="stylesheet" href="{{ url_for('static', filename='css/light-theme.css') }}"
+        data-light="{{ url_for('static', filename='css/light-theme.css') }}"
+        data-dark="{{ url_for('static', filename='css/dark-theme.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+
+
+
+
+    <!-- Custom Styles -->
+    <style>
+        /* Navbar Styles */
+        .navbar {
+            background-color: #000000; /* Primary color for the navbar */
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a {
+            color: #000000; /* Changed to white for visibility */
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: #ffd700; /* Gold color on hover and active */
+        }
+
+        /* Hero Section Styles */
+        .hero-section {
+            background: url("{{ url_for('static', filename='images/hero-bg.jpg') }}") no-repeat center center;
+            background-size: cover;
+            color: #ffffff;
+            padding: 100px 0;
+            position: relative;
+            text-align: left;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 123, 255, 0.7);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Feature Images */
+        .feature-img {
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 40px 0;
+        }
+
+        footer a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #ffd700;
+            text-decoration: underline;
+        }
+
+        /* Smooth Scroll Behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle-btn {
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle-btn:hover {
+            transform: scale(1.1);
+        }
+    </style>
+
+    <style>
+        /* Custom Styles for Enhanced UI */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+        }
+        header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        .card-footer {
+            background-color: #ffffff;
+            border-top: none;
+        }
+        .cta {
+            background-color: #ffffff;
+            padding: 40px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-top: 40px;
+        }
+        .cta input[type="email"] {
+            max-width: 400px;
+            margin: 0 auto 20px;
+        }
+        .search-filter {
+            margin-bottom: 30px;
+        }
+        .footer-custom {
+            background-color: #343a40;
+            color: white;
+        }
+        /* Animation for CTA */
+        .cta {
+            animation: fadeInUp 1s ease-out;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+    
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="/">
+                <img src="{{ url_for('static', filename='images/download2.png') }}" alt="Cancer Detection System Logo" width="40" height="40" class="me-2">
+                <span class="fw-bold">Cancero</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                    <!-- About Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            About
+                        </a>
+                        <div class="dropdown-menu custom-dropdown p-3" aria-labelledby="aboutDropdown">
+                            <div class="row">
+                                <!-- Links Column -->
+                                <div class="col-6 links">
+                                    <a class="dropdown-item" href="/Mission">Mission</a>
+                                    <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#teamModal">Our Team</a>
+                                    <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#partnersModal">Partners & Sponsors</a>
+                                    <a class="dropdown-item" href="/news">News</a>
+                                    <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#contactModal">Contact Us</a>
+                                </div>
+                                <!-- Image Column -->
+                                <div class="col-6 image">
+                                    <img src="{{ url_for('static', filename='images/about.webp') }}" alt="About Us Image" class="img-fluid" style="border-radius: 5px;">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- contact-modal.html -->
+
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered"> <!-- Use modal-lg for larger modals -->
+        <div class="modal-content" style="border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);">
+            <!-- Header -->
+            <div class="modal-header" style="background-color: #4b69c3; color: white;">
+                <h5 class="modal-title" id="contactModalLabel">Contact Us</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: white;"></button>
+            </div>
+
+            <!-- Body Section -->
+            <div class="modal-body" style="padding: 20px; background-color: #f7f7f7;">
+                <form>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="issue" class="form-label">Select Issue</label>
+                        <select class="form-select" id="issue" required>
+                            <option value="" disabled selected>Select an issue</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="technical">Technical Support</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="billing">Billing Issues</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Optional Footer -->
+            <div class="modal-footer" style="border-top: none; padding: 20px;">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="border-radius: 20px; padding: 10px 20px; background-color: #6C757D; color: white; border: none;">
+                    Close
+                </button>
+                <button type="submit" class="btn btn-primary" style="border-radius: 20px; padding: 10px 20px;">
+                    Send Message
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+          
+
+
+                    <!-- team-modal.html -->
+                 
+
+                    <div class="modal fade" id="teamModal" tabindex="-1" aria-labelledby="teamModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-centered"> <!-- Use modal-lg for larger modals -->
+                            <div class="modal-content" style="border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);">
+                                <!-- Header -->
+                                <div class="modal-header" style="background-color: #4b69c3; color: white;">
+                                    <h5 class="modal-title" id="teamModalLabel">Our Team Members</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: white;"></button>
+                                </div>
+                    
+            
+            <!-- Body Section -->
+            <div class="modal-body" style="padding: 20px; background-color: #f7f7f7;">
+                <div class="row">
+                    <!-- Team Member 1 -->
+                    <div class="col-12 col-sm-4 text-center mb-4 mb-sm-0">
+                        <div class="card" style="border-radius: 15px;">
+                            <img src="{{ url_for('static', filename='/images/Ankush.jpeg') }}" class="card-img-top" alt="Team Member 1" style="border-radius: 20px 15px 0 0;">
+                            <div class="card-body">
+                                <h5 class="card-title">Ankush Verma</h5>
+                                <p class="card-text">Role:Front-End Developer </p>
+                                <a href="https://www.linkedin.com/in/ankushv18/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-linkedin"></i> LinkedIn
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 2 -->
+                    <div class="col-12 col-sm-4 text-center mb-4 mb-sm-0">
+                        <div class="card" style="border-radius: 15px;">
+                            <img src="{{ url_for('static', filename='/images/Siddharth.jpg') }}" class="card-img-top" alt="Team Member 2" style="border-radius: 15px 15px 0 0;">
+                            <div class="card-body">
+                                <h5 class="card-title">Siddharth Mishra</h5>
+                                <p class="card-text">Role: AI Developer</p>
+                                <a href="https://www.linkedin.com/in/siddharth-mishra-0a5227228/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-linkedin"></i> LinkedIn
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 3 -->
+                    <div class="col-12 col-sm-4 text-center">
+                        <div class="card" style="border-radius: 15px;">
+                            <img src="{{ url_for('static', filename='/images/Manoday.jpg') }}" class="card-img-top" alt="Team Member 3" style="border-radius: 15px 15px 0 0;">
+                            <div class="card-body">
+                                <h5 class="card-title">Manoday Kadam</h5>
+                                <p class="card-text">Role: Model Developer</p>
+                                <a href="https://www.linkedin.com/in/manoday-kadam-3b1a74268/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-linkedin"></i> LinkedIn
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Optional Footer -->
+            <div class="modal-footer" style="border-top: none; padding: 20px;">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="border-radius: 20px; padding: 10px 20px; background-color: #6C757D; color: white; border: none;">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal Structure -->
+<div class="modal fade" id="partnersModal" tabindex="-1" aria-labelledby="partnersModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content" style="border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);">
+            <!-- Header -->
+            <div class="modal-header" style="background-color: #4b69c3; color: white;">
+                <h5 class="modal-title " id="partnersModalLabel" style="text-align: center;">Our Partners & Sponsors</h5>
+                
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: white;"></button>
+            </div>
+
+            <!-- Body Section -->
+            <div class="modal-body" style="padding: 20px; background-color: #f7f7f7;">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <!-- Partner 1 -->
+                        <div class="col-lg-6 col-md-6 text-center mb-4">
+                            <a href="https://devfolio.co/home/" target="_blank">
+                              
+                                  
+                                   
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 619.1 129" style="max-width: 150px;">
+                                        <defs>
+                                            <style>
+                                                .cls-1 {
+                                                    fill: #273339;
+                                                }
+                                                .cls-2 {
+                                                    fill: #3770ff;
+                                                }
+                                            </style>
+                                        </defs>
+                                        <title>Devfolio - Normal</title>
+                                        <g id="Layer_2" data-name="Layer 2">
+                                            <g id="Layer_1-2" data-name="Layer 1">
+                                                <path class="cls-1" d="M156,24h33.8a52.81,52.81,0,0,1,23.75,4.93,34.94,34.94,0,0,1,15.26,14.3,44.35,44.35,0,0,1,5.3,22.2,45,45,0,0,1-5.25,22.34,34.63,34.63,0,0,1-15.21,14.3A53.13,53.13,0,0,1,189.81,107H156Zm31.67,65a24.59,24.59,0,0,0,18.08-6,24.41,24.41,0,0,0,6-18.08,24.18,24.18,0,0,0-6-18.08A24.72,24.72,0,0,0,187.67,41H177V89Z"/>
+                                                <path class="cls-1" d="M298,82H262a12.66,12.66,0,0,0,4.34,8.09,14.45,14.45,0,0,0,9.09,2.45,28.89,28.89,0,0,0,16.26-5.27L297,100.9a34,34,0,0,1-10.45,5,42.52,42.52,0,0,1-12.17,1.82,38.07,38.07,0,0,1-17.22-3.63,26,26,0,0,1-11.18-10.45A31.3,31.3,0,0,1,242,77.68a32.21,32.21,0,0,1,3.68-15.54A26.58,26.58,0,0,1,256,51.47,29.39,29.39,0,0,1,271,47.66a25.44,25.44,0,0,1,19.53,8A32.07,32.07,0,0,1,298,77ZM262,72H280.2q-.68-10.31-9.09-10.31T262,72Z"/>
+                                                <path class="cls-1" d="M345.58,49h20.55l-25.91,58H322.88l-25.5-58h22l12.77,32.69Z"/>
+                                                <path class="cls-1" d="M403,50h13V65H402v42H381V65H371V50h10.71a23.35,23.35,0,0,1,8-17.86A38.06,38.06,0,0,1,412,25.31l7.22-.45,1.2,14.87-5.56.22a19.37,19.37,0,0,0-9.2,2A6.74,6.74,0,0,0,403,48Z"/>
+                                                <path class="cls-1" d="M434.43,104A26.48,26.48,0,0,1,423.3,93.51a31.3,31.3,0,0,1-3.91-15.95,31,31,0,0,1,3.91-15.9A26.3,26.3,0,0,1,434.38,51.3a40.48,40.48,0,0,1,33.53,0A26.3,26.3,0,0,1,479,61.66a31,31,0,0,1,3.91,15.9A31.3,31.3,0,0,1,479,93.51,26.58,26.58,0,0,1,467.68,104a39.75,39.75,0,0,1-33.43,0Zm27.85-26.26q0-14.54-11.13-14.54T440,77.74q0,14.54,11.13,14.54T462.27,77.74Z"/>
+                                                <path class="cls-1" d="M492,107V24h21v83Z"/>
+                                                <path class="cls-1" d="M525,20h22V39H525Zm0,86.86V49h21v58Z"/>
+                                                <path class="cls-1" d="M570.62,104a26.48,26.48,0,0,1-11.13-10.49,31.3,31.3,0,0,1-3.91-15.95,31,31,0,0,1,3.91-15.9A26.3,26.3,0,0,1,570.57,51.3a40.48,40.48,0,0,1,33.53,0,26.3,26.3,0,0,1,11.08,10.36,31,31,0,0,1,3.91,15.9,31.3,31.3,0,0,1-3.91,15.95A26.58,26.58,0,0,1,604,104a39.75,39.75,0,0,1-33.43,0Zm27.85-26q0-14.54-11.13-14.54T576.21,78q0,14.54,11.13,14.54T598.42,78Z"/>
+                                                <path class="cls-2" d="M118,70.7c.26,29.53-21.71,54.87-50.95,58.2a16.34,16.34,0,0,1-1.86.1c-5.82,0-37.28,0-48.9-.47a12.9,12.9,0,0,1-10.36-7.81,15.81,15.81,0,0,0,5.5,1.32c4,.36,11.06,0,20.69,0,10.25,0,21.33.09,26.64.14a46.78,46.78,0,0,0,8.46-.65A60.65,60.65,0,0,0,102,102.23a63.6,63.6,0,0,0,16-35.07Z"/>
+                                                <path class="cls-2" d="M113.34,58A58,58,0,0,1,61,116H12A14,14,0,0,1,0,102V14C0,7,5,0,12,0H62A57,57,0,0,1,113.34,58Z"/>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </a>
+                            </a>
+                            <p>Devfolio</p>
+                            <p class="small">Provides a platform for developers to showcase their projects and connect with opportunities.</p>
+                        </div>
+
+                        <!-- Partner 2 -->
+                        <div class="col-lg-6 col-md-6 text-center mb-4">
+                            <a href="https://www.startupindia.gov.in/" target="_blank">
+                                <img src="{{ url_for('static', filename='/images/StartupIndia.png') }}" alt="Startup India" class="img-fluid" style="max-width: 150px;">
+                            </a>
+                           
+                            <p>Startup India </p>
+                            <p class="small">Supports startups in India with resources and networking to help them grow and succeed.</p>
+                        </div>
+
+                        <!-- Partner 3 -->
+                    
+                        <div class="col-lg-6 col-md-6 text-center mb-4">
+                            <a href="https://www.google.com/about/careers/applications/?utm_campaign=profilepage&utm_medium=profilepage&utm_source=linkedin&src=Online/LinkedIn/linkedin_page" target="_blank">
+                                <img src="{{ url_for('static', filename='/images/google.webp') }}" alt="Google" class="img-fluid" style="max-width: 200px;">
+                            </a>
+                        
+                            <p>Google</p>
+                            <p class="small">A leader in technology and innovation, providing essential tools and resources for developers.</p>
+                        </div>
+
+                        <!-- Partner 4 -->
+                        <div class="col-lg-4 col-md-6 text-center mb-4">
+                            <a href="https://msh.meity.gov.in/" target="_blank">
+                                <img src="{{ url_for('static', filename='/images/miety.png') }}" alt="MEITY Startup Hub" class="img-fluid" style="max-width: 150px;">
+                            </a>
+                            <p>MEITY Startup Hub</p>
+                            <p class="small">Focuses on promoting innovation and entrepreneurship through various initiatives and support programs.</p>
+                        </div>
+                        <!-- Add more partners/sponsors as necessary -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Optional Footer -->
+            <div class="modal-footer" style="border-top: none; padding: 20px;">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="border-radius: 20px; padding: 10px 20px; background-color: #6C757D; color: white; border: none;">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+                    <!-- Fitness & Wellness Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="fitnessDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Fitness & Wellness
+                        </a>
+                        <div class="dropdown-menu custom-dropdown p-3" aria-labelledby="fitnessDropdown">
+                            <div class="row">
+                                <!-- Links Column -->
+                                <div class="col-6 links">
+                                    <a class="dropdown-item" href="/personalized-plans">Health Dashboard</a>
+                                   
+                                    <a class="dropdown-item" href="/virtual-workouts">Virtual Workout Sessions</a>
+                                  
+                                    <a class="dropdown-item" href="/nutritional-guidance">Nutritional Guidance</a>
+                                   
+                                </div>
+                                <!-- Image Column -->
+                                <div class="col-6 image">
+                                    <img src="{{ url_for('static', filename='images/Fitness.webp') }}" alt="Fitness & Wellness Image" class="img-fluid" style="border-radius: 5px;">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Education & Awareness Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="educationDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Education & Awareness
+                        </a>
+                        <div class="dropdown-menu custom-dropdown p-3" aria-labelledby="educationDropdown">
+                            <div class="row">
+                                <!-- Links Column -->
+                                <div class="col-6 links">
+                                    <a class="dropdown-item" href="/cancer-journey-stories">Cancer Journey Stories</a>
+                                    <a class="dropdown-item" href="/webinars-workshops">Webinars and Workshops</a>
+                                    <a class="dropdown-item" href="/virtual-reality">Virtual Reality (VR) Experiences</a>
+                                    <a class="dropdown-item" href="/health-literacy">Health Literacy Quizzes and Tools</a>
+                                </div>
+                                <!-- Image Column -->
+                                <div class="col-6 image">
+                                    <img src="{{ url_for('static', filename='images/education.jpeg') }}" alt="Education & Awareness Image" class="img-fluid" style="border-radius: 5px;">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/doctors">Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/charts">Charts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/upload">Upload Files</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/upload_pdf">Past Reports</a>
+                    </li>
+
+                    <!-- Theme Toggle Button -->
+                    <li class="nav-item">
+                        <button class="btn btn-outline-light ms-3 theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle Theme">
+                            <i class="fas fa-moon" id="theme-toggle-icon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+
+    <!-- Webinars Donate Button -->
+<a href="#" class="donate-button" data-bs-toggle="modal" data-bs-target="#webinarPaymentModal">
+    <span>&hearts;</span> Donate for Webinar
+</a>
+
+<!-- Webinars Payment Modal -->
+<div class="modal fade" id="webinarPaymentModal" tabindex="-1" aria-labelledby="webinarPaymentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); transition: transform 0.3s;">
+
+            <!-- Header -->
+            <div class="modal-header" style="background-color: #2F80ED; color: white;">
+                <h5 class="modal-title" id="webinarPaymentModalLabel">Secure Payment for Webinar</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: white;"></button>
+            </div>
+            
+            <!-- Image Section -->
+            <div class="payment-image" style="background-image: url('/static/images/webinar_donation.webp'); background-size: contain; background-position: center; height: 200px;">
+                <div class="image-overlay">
+                    <h2>Select Payment Method</h2>
+                </div>
+            </div>
+
+            <!-- Body Section -->
+            <div class="modal-body" style="padding: 20px; background-color: #f7f7f7;">
+                <p style="font-size: 16px; color: #333;">Please choose your preferred payment method:</p>
+
+                <!-- Payment Method Options -->
+                <form>
+                    <div class="btn-group" role="group" aria-label="Payment Options" style="display: flex; justify-content: space-around;">
+                        <input type="radio" class="btn-check" name="webinarPaymentMethod" id="webinarPaymentGPay" autocomplete="off" value="gpay">
+                        <label class="btn payment-btn" for="webinarPaymentGPay">GPay</label>
+
+                        <input type="radio" class="btn-check" name="webinarPaymentMethod" id="webinarPaymentPaytm" autocomplete="off" value="paytm">
+                        <label class="btn payment-btn" for="webinarPaymentPaytm">Paytm</label>
+
+                        <input type="radio" class="btn-check" name="webinarPaymentMethod" id="webinarPaymentCard" autocomplete="off" value="card">
+                        <label class="btn payment-btn" for="webinarPaymentCard">Card</label>
+
+                        <input type="radio" class="btn-check" name="webinarPaymentMethod" id="webinarPaymentUPI" autocomplete="off" value="upi">
+                        <label class="btn payment-btn" for="webinarPaymentUPI">UPI</label>
+
+                        <input type="radio" class="btn-check" name="webinarPaymentMethod" id="webinarPaymentNetBanking" autocomplete="off" value="NetBanking">
+                        <label class="btn payment-btn" for="webinarPaymentNetBanking">Net Banking</label>
+                    </div>
+
+                    <!-- Offers Section -->
+                    <div class="form-check mt-4" style="font-size: 14px;">
+                        <input class="form-check-input" type="checkbox" id="applyWebinarOffers" style="margin-right: 10px;">
+                        <label class="form-check-label" for="applyWebinarOffers" style="color: #333;">
+                            Apply available offers
+                        </label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="modal-footer" style="border-top: none; padding: 20px;">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="border-radius: 20px; padding: 10px 20px; background-color: #6C757D; color: white; border: none;">
+                            Close
+                        </button>
+                        <button type="submit" class="btn btn-primary" style="background-color: #2F80ED; border: none; border-radius: 20px; padding: 10px 20px; transition: transform 0.3s;">
+                            Proceed to Pay
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Workshops Donate Button -->
+<a href="#" class="donate-button" data-bs-toggle="modal" data-bs-target="#workshopPaymentModal">
+    <span>&hearts;</span> Donate for Workshops
+</a>
+
+<!-- Workshops Payment Modal -->
+<div class="modal fade" id="workshopPaymentModal" tabindex="-1" aria-labelledby="workshopPaymentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); transition: transform 0.3s;">
+
+            <!-- Header -->
+            <div class="modal-header" style="background-color: #2F80ED; color: white;">
+                <h5 class="modal-title" id="workshopPaymentModalLabel">Secure Payment for Workshop</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: white;"></button>
+            </div>
+            
+            <!-- Image Section -->
+            <div class="payment-image" style="background-image: url('static/images/Workshop.webp'); background-size: contain; background-position: center; height: 200px;">
+                <div class="image-overlay">
+                    <h2></h2>
+                </div>
+            </div>
+
+            <!-- Body Section -->
+            <div class="modal-body" style="padding: 20px; background-color: #f7f7f7;">
+                <p style="font-size: 16px; color: #333;">Please choose your preferred payment method:</p>
+
+                <!-- Payment Method Options -->
+                <form>
+                    <div class="btn-group" role="group" aria-label="Payment Options" style="display: flex; justify-content: space-around;">
+                        <input type="radio" class="btn-check" name="workshopPaymentMethod" id="workshopPaymentGPay" autocomplete="off" value="gpay">
+                        <label class="btn payment-btn" for="workshopPaymentGPay">GPay</label>
+
+                        <input type="radio" class="btn-check" name="workshopPaymentMethod" id="workshopPaymentPaytm" autocomplete="off" value="paytm">
+                        <label class="btn payment-btn" for="workshopPaymentPaytm">Paytm</label>
+
+                        <input type="radio" class="btn-check" name="workshopPaymentMethod" id="workshopPaymentCard" autocomplete="off" value="card">
+                        <label class="btn payment-btn" for="workshopPaymentCard">Card</label>
+
+                        <input type="radio" class="btn-check" name="workshopPaymentMethod" id="workshopPaymentUPI" autocomplete="off" value="upi">
+                        <label class="btn payment-btn" for="workshopPaymentUPI">UPI</label>
+
+                        <input type="radio" class="btn-check" name="workshopPaymentMethod" id="workshopPaymentNetBanking" autocomplete="off" value="NetBanking">
+                        <label class="btn payment-btn" for="workshopPaymentNetBanking">Net Banking</label>
+                    </div>
+
+                    <!-- Offers Section -->
+                    <div class="form-check mt-4" style="font-size: 14px;">
+                        <input class="form-check-input" type="checkbox" id="applyWorkshopOffers" style="margin-right: 10px;">
+                        <label class="form-check-label" for="applyWorkshopOffers" style="color: #333;">
+                            Apply available offers
+                        </label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="modal-footer" style="border-top: none; padding: 20px;">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="border-radius: 20px; padding: 10px 20px; background-color: #6C757D; color: white; border: none;">
+                            Close
+                        </button>
+                        <button type="submit" class="btn btn-primary" style="background-color: #2F80ED; border: none; border-radius: 20px; padding: 10px 20px; transition: transform 0.3s;">
+                            Proceed to Pay
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</head>
+<body>
+    <!-- Header -->
+    <header class="text-center py-5">
+        <h1>Webinars and Workshops</h1>
+        <p>Explore our upcoming and past webinars and workshops focused on cancer awareness and education.</p>
+    </header>
+
+  
+<!-- Featured Events Carousel -->
+<div class="container mb-3">
+    <div id="featuredCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active text-center">
+                <img src="{{ url_for('static', filename='/images/event1.jpg') }}" 
+                     class="d-block mx-auto" 
+                     alt="Featured Event 1" 
+                     style="max-width: 600px; height: auto;">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5></h5>
+                    <p></p>
+                </div>
+            </div>
+            <div class="carousel-item text-center">
+                <img src="{{ url_for('static', filename='/images/event2.jpg') }}" 
+                     class="d-block mx-auto" 
+                     alt="Featured Event 2" 
+                     style="max-width: 600px; height: auto;">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5></h5>
+                    <p></p>
+                </div>
+            </div>
+            <!-- Add more carousel items as needed -->
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#featuredCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#featuredCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+<style>
+    /* Change the background color and border for the carousel control buttons */
+    .carousel-control-prev,
+    .carousel-control-next {
+        background-color: #007bff; /* Replace with your desired color */
+        border-radius: 10%; /* Optional: to make the buttons circular */
+    }
+
+    /* Change the color of the icons inside the buttons */
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: white; /* Background color for icons */
+        border-radius: 10%; /* Optional: to make the icons circular */
+    }
+
+    /* Optional: Change hover effects */
+    .carousel-control-prev:hover,
+    .carousel-control-next:hover {
+        background-color: #0056b3; /* Darker shade for hover effect */
+    }
+
+    .carousel-inner {
+        text-align: center; /* Centers all carousel content */
+    }
+</style>
+    <!-- Main Content -->
+    <div class="container  ">
+        <!-- Filters or Categories -->
+        <div class="row search-filter">
+            <div class="col-md-4 mb-3">
+                <select class="form-select" id="categoryFilter">
+                    <option selected>All Categories</option>
+                    <option value="webinar">Webinars</option>
+                    <option value="workshop">Workshops</option>
+                    <option value="podcast">Podcasts</option> 
+                </select>
+            </div>
+            <div class="col-md-4 mb-3">
+                <input type="text" class="form-control" id="searchInput" placeholder="Search by title or speaker">
+            </div>
+            <div class="col-md-4 text-md-end">
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addEventModal">
+                    <i class="fas fa-plus"></i> Add Event
+                </button>
+            </div>
+        </div>
+
+        <!-- Webinars and Workshops Grid -->
+        <div class="row" id="eventsContainer">
+            <!-- Example Card -->
+            <div class="col-md-4 mb-4 event-card" data-category="webinar">
+                <div class="card h-100">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/iKI_SiWy1DM" title="Webinar Video" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Understanding Cancer Treatments</h5>
+                        <p class="card-text">An in-depth webinar discussing the latest advancements in cancer treatments.</p>
+                        <p><strong>Speaker:</strong> Dr. Shailesh Puntambekar</p>
+                        <p><strong>Date:</strong> Jan 15, 2024</p>
+                        <div class="mt-3">
+                            <i class="fas fa-podcast"></i> <strong>Listen to our Podcast:</strong>
+                            <audio controls class="w-100 mt-2">
+                                <source src="{{ url_for('static', filename='audio/sample-podcast.mp3') }}" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="card-footer text-end">
+                        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Repeat similar cards for other webinars/workshops -->
+            <!-- Example of another card -->
+            <div class="col-md-4 mb-4 event-card" data-category="workshop">
+                <div class="card h-100">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/H_Caofv95a4?" title="Workshop Video" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Oral Health</h5>
+                        <p class="card-text">Mouth Cancer, Teeth Brushing, Bad Breath.</p>
+                        <p><strong>Speaker:</strong> Dr. Sandesh Mayekar</p>
+                        <p><strong>Date:</strong> April 20, 2024</p>
+                        <div class="mt-3">
+                            <i class="fas fa-podcast"></i> <strong>Listen to our Podcast:</strong>
+                            <audio controls class="w-100 mt-2">
+                                <source src="{{ url_for('static', filename='audio/another-podcast.mp3') }}" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="card-footer text-end">
+                        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4 event-card" data-category="webinar">
+                <div class="card h-100">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/VaVC3PAWqLk?" title="Webinar Video" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">The Groundbreaking Cancer Expert</h5>
+                        <p class="card-text">"This Common Food Is Making Cancer Worse!".</p>
+                        <p><strong>Speaker:</strong> Dr Thomas Seyfried </p>
+                        <p><strong>Date:</strong> March 10, 2024</p>
+                        <div class="mt-3">
+                            <i class="fas fa-podcast"></i> <strong>Listen to our Podcast:</strong>
+                            <audio controls class="w-100 mt-2" preload="none">
+                                <source src="{{ url_for('static', filename='audio/advanced-research-podcast.mp3') }}" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="card-footer text-end">
+                        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal" title="Register for Advanced Cancer Research Webinar" data-bs-toggle="tooltip">
+                            <i class="fas fa-user-plus"></i> Register
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more event cards as needed -->
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="container">
+        <div class="cta">
+            <h2>Stay Updated!</h2>
+            <p>Subscribe to our newsletter for the latest updates on webinars and workshops.</p>
+            <form>
+                <div class="d-flex justify-content-center">
+                    <input type="email" class="form-control me-2" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+   
+
+    <!-- Modals -->
+    <!-- Add Event Modal -->
+    <div class="modal fade" id="addEventModal" tabindex="-1" aria-labelledby="addEventModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="addEventModalLabel" class="modal-title">Add New Event</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="addEventForm">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="eventTitle" class="form-label">Event Title</label>
+                            <input type="text" class="form-control" id="eventTitle" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="eventDescription" class="form-label">Description</label>
+                            <textarea class="form-control" id="eventDescription" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="eventSpeaker" class="form-label">Speaker</label>
+                            <input type="text" class="form-control" id="eventSpeaker" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="eventDate" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="eventDate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="eventCategory" class="form-label">Category</label>
+                            <select class="form-select" id="eventCategory" required>
+                                <option value="webinar">Webinar</option>
+                                <option value="workshop">Workshop</option>
+                                <option value="workshop">Podcasts</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="eventVideo" class="form-label">YouTube Video URL</label>
+                            <input type="url" class="form-control" id="eventVideo" placeholder="https://www.youtube.com/watch?v=..." required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="eventPodcast" class="form-label">Podcast Audio URL</label>
+                            <input type="url" class="form-control" id="eventPodcast" placeholder="https://example.com/podcast.mp3" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Add Event</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="registerModalLabel" class="modal-title">Register for Webinar</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="registerForm">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="registerName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="registerName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="registerEmail" required>
+                        </div>
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+   
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/webinars_workshops.js') }}"></script>
+    <script>
+        // JavaScript for Adding Events
+        document.getElementById('addEventForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Collect form data
+            const title = document.getElementById('eventTitle').value;
+            const description = document.getElementById('eventDescription').value;
+            const speaker = document.getElementById('eventSpeaker').value;
+            const date = document.getElementById('eventDate').value;
+            const category = document.getElementById('eventCategory').value;
+            const videoUrl = document.getElementById('eventVideo').value;
+            const podcastUrl = document.getElementById('eventPodcast').value;
+
+            // Convert YouTube URL to embed format
+            let embedVideoUrl = '';
+            try {
+                const url = new URL(videoUrl);
+                const videoId = url.searchParams.get('v');
+                if (videoId) {
+                    embedVideoUrl = https://www.youtube.com/embed/${videoId};
+                } else {
+                    throw new Error('Invalid YouTube URL');
+                }
+            } catch (error) {
+                alert('Please enter a valid YouTube URL.');
+                return;
+            }
+
+            // Create a new event card
+            const eventCard = document.createElement('div');
+            eventCard.className = col-md-4 mb-4 event-card;
+            eventCard.setAttribute('data-category', category);
+            eventCard.innerHTML = `
+                <div class="card h-100">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="${embedVideoUrl}" title="${title} Video" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">${title}</h5>
+                        <p class="card-text">${description}</p>
+                        <p><strong>Speaker:</strong> ${speaker}</p>
+                        <p><strong>Date:</strong> ${new Date(date).toLocaleDateString()}</p>
+                        <div class="mt-3">
+                            <i class="fas fa-podcast"></i> <strong>Listen to our Podcast:</strong>
+                            <audio controls class="w-100 mt-2">
+                                <source src="${podcastUrl}" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="card-footer text-end">
+                        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
+                    </div>
+                </div>
+            `;
+            document.getElementById('eventsContainer').appendChild(eventCard);
+
+            // Reset the form and close the modal
+            e.target.reset();
+            const addEventModal = bootstrap.Modal.getInstance(document.getElementById('addEventModal'));
+            addEventModal.hide();
+        });
+
+        // JavaScript for Filtering Events by Category
+        document.getElementById('categoryFilter').addEventListener('change', function() {
+            const category = this.value;
+            const eventCards = document.querySelectorAll('.event-card');
+            eventCards.forEach(card => {
+                if (category === 'All Categories' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // JavaScript for Searching Events by Title or Speaker
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            const query = this.value.toLowerCase();
+            const eventCards = document.querySelectorAll('.event-card');
+            eventCards.forEach(card => {
+                const title = card.querySelector('.card-title').textContent.toLowerCase();
+                const speaker = card.querySelector('.card-text').textContent.toLowerCase();
+                if (title.includes(query) || speaker.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Initialize Bootstrap tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+          return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+    </script>
+</body>
+</html>
