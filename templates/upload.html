@@ -39,25 +39,23 @@
             text-align: center;
             margin-bottom: 40px;
         }
+        .navbar a {
+            color: black; /* White text for navbar links */
+            transition: color 0.3s, background-color 0.3s; /* Smooth transition for color change */
+            padding: 10px 15px; /* Add some padding for better hover effect */
+        }
+
+        .navbar a:hover {
+            color: #ffd700; /* Gold color on hover */
+            background-color: rgba(255, 255, 255, 0.1); /* Light background color on hover */
+            border-radius: 5px; /* Rounded corners on hover */
+        }
+
+        .navbar a.active {
+            color: #ffd700; /* Gold color for the active link */
+        }
     </style>
 </head>
-
-  <!-- Custom Styles -->
-  <style>
-    .navbar {
-        background-color: #007bff; /* Primary color for the navbar */
-    }
-    .navbar a {
-        color: black; /* White text for navbar links */
-    }
-    .navbar a:hover {
-        color: #ffd700; /* Gold color on hover */
-    }
-    /* Optional: This will ensure that the active link also maintains the gold color when hovered */
-    .navbar a.active {
-        color: #ffd700; /* Gold color for the active link */
-    }
-</style>
 
 <body>
     <!-- Navigation Bar -->
@@ -65,7 +63,7 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="/">
                 <img src="{{ url_for('static', filename='images/download2.png') }}" alt="Cancer Detection System Logo" width="30" height="30" class="d-inline-block align-text-top" aria-label="Cancer Detection System Logo">
-                Cancer Detection System
+                Cancero
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -88,6 +86,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/upload">Upload Cancer Detection Files</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/upload_pdf">Past Reports</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -99,7 +100,7 @@
             <!-- Image Upload Card -->
             <div class="col-md-6">
                 <div class="upload-section">
-                    <h5><i class="bi bi-file-earmark-image"></i> Upload CT Scan or Genomic Sequence</h5>
+                    <h5><i class="bi bi-file-earmark-image"></i> Upload Genomic Sequence</h5>
                     <form action="{{ url_for('upload_image') }}" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="image">Choose an image file:</label>
@@ -113,13 +114,13 @@
             <!-- CSV Upload Card -->
             <div class="col-md-6">
                 <div class="upload-section">
-                    <h5><i class="bi bi-file-earmark-spreadsheet"></i> Upload CSV (Genomic Data)</h5>
-                    <form action="{{ url_for('upload_csv') }}" method="POST" enctype="multipart/form-data">
+                    <h5><i class="bi bi-file-earmark-image"></i> Upload CT or MRI Images</h5>
+                    <form action="{{ url_for('upload_ct_mri') }}" method="post" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label for="csv">Choose a CSV file:</label>
-                            <input type="file" name="csv" class="form-control" required>
+                            <label for="ct_mri_image">Upload CT/MRI Image:</label>
+                            <input type="file" name="image" class="form-control" required>
                         </div>
-                        <button type="submit" class="btn btn-primary mt-2">Upload CSV</button>
+                        <button type="submit" class="btn btn-primary mt-2">Upload and Predict</button>
                     </form>
                 </div>
             </div>
