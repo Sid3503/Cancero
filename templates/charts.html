@@ -124,7 +124,7 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
         <img src="{{ url_for('static', filename='images/download2.png') }}" alt="Cancer Detection System Logo" width="40" height="40" class="me-2">
-        <a class="navbar-brand" href="/">Cancer Detection System</a>
+        <a class="navbar-brand" href="/">Cancero</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -153,6 +153,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="/upload">Upload Files</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/upload_pdf">Past Reports</a>
+          </li>
           </ul>
         </div>
       </div>
@@ -588,59 +591,5 @@
             });
           };
     </script>
-    <footer class="footer text-center" style="background-color: #333; color: #fff;">
-        <div class="container p-4">
-            <div class="row">
-                <!-- About Section -->
-                <div class="col-lg-6 col-md-12 mb-4 mb-lg-0 text-lg-start" data-aos="fade-up">
-                    <h5>Cancer Detection System</h5>
-                    <p>
-                        Empowering healthcare professionals with advanced cancer detection tools. 
-                        Your partner in the fight against cancer.
-                    </p>
-                </div>
-    
-                <!-- Links Section -->
-                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0 text-lg-end" data-aos="fade-up" data-aos-delay="100">
-                    <h5 class="text-uppercase">Quick Links</h5>
-                    <ul class="list-unstyled mb-0">
-                        <li>
-                            <a href="/" class="text-light">Home</a>
-                        </li>
-                        <li>
-                            <a href="/doctors" class="text-light">Doctors</a>
-                        </li>
-                        <li>
-                            <a href="/news" class="text-light">Recent Developments</a>
-                        </li>
-                        <li>
-                            <a href="/upload" class="text-light">Upload Files</a>
-                        </li>
-                    </ul>
-                </div>
-    
-                <!-- Contact Section -->
-                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0 text-lg-end" data-aos="fade-up" data-aos-delay="200">
-                    <h5 class="text-uppercase">Contact Us</h5>
-                    <ul class="list-unstyled mb-0">
-                        <li>
-                            <a href="mailto:support@cancer-detection.com" class="text-light"><i class="fas fa-envelope me-2"></i>support@cancer-detection.com</a>
-                        </li>
-                        <li>
-                            <a href="tel:+1234567890" class="text-light"><i class="fas fa-phone me-2"></i>+1 (234) 567-890</a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/company/cancer-detection-system" target="_blank" class="text-light"><i class="fab fa-linkedin me-2"></i>LinkedIn</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    
-        <!-- Footer Bottom -->
-        <div class="bg-dark text-white text-center py-3">
-            © 2024 Cancer Detection System. All rights reserved.
-        </div>
-    </footer>
   </body>
 </html>
