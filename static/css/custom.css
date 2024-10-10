@@ -1,58 +1,380 @@
 
 .navbar-brand img {
-    margin-right: 10px;
-    max-height: 40px; 
+  margin-right: 10px;
+  max-height: 40px; /* or adjust based on your design */
 }
 
+/* Style the hero section */
 .container.my-5 {
-    padding-top: 50px;
-    padding-bottom: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
+/* Responsive padding for mobile screens */
 @media (max-width: 768px) {
-    .container.my-5 {
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
+  .container.my-5 {
+      padding-top: 20px;
+      padding-bottom: 20px;
+  }
 }
 
+/* Customize buttons */
 .btn-primary, .btn-custom {
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #004085;
+  background-color: #0056b3;
+  border-color: #004085;
 }
 
+/* Customize upload buttons */
 .btn-custom {
-    background-color: #28a745;
-    border-color: #28a745;
-    color: white;
+  background-color: #28a745;
+  border-color: #28a745;
+  color: white;
 }
 
 .btn-custom:hover {
-    background-color: #218838;
-    border-color: #1e7e34;
-    color: white;
+  background-color: #218838;
+  border-color: #1e7e34;
+  color: white;
 }
 
+/* Footer styling */
 .footer {
-    background-color: #f8f9fa;
-    padding: 20px 0;
-    text-align: center;
-    font-size: 14px;
+  background-color: #f8f9fa;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 14px;
 }
 
+/* Footer responsiveness */
 @media (max-width: 768px) {
-    .footer {
-        padding: 10px 0;
-        font-size: 12px;
-    }
+  .footer {
+      padding: 10px 0;
+      font-size: 12px;
+  }
 }
+/* Additional custom styles */ 
 
 .feature-img {
-    width: 100%;        
-    height: 200px;      
-    object-fit: cover;   
+  width: 100%;          /* Make images responsive */
+  height: 200px;       /* Set a fixed height */
+  object-fit: cover;   /* Maintain aspect ratio while filling the space */
+}
+
+/* General Nav Styling */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+nav ul li {
+  position: relative;
+}
+
+.nav-link {
+  padding: 15px;
+  text-decoration: none;
+  color: #333;
+}
+
+.nav-link:hover {
+  color: #007bff;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.dropdown-menu .dropdown-item {
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* Display the dropdown on hover */
+.nav-item:hover .dropdown-menu {
+  display: block;
+}
+
+
+
+/* Floating Donate Button */
+.donate-button {
+position: fixed;
+top: 50%; /* Centering vertically */
+left: 0;
+background-color: #ff1744;
+color: white;
+padding: 10px 20px;
+font-size: 16px;
+font-weight: bold;
+border-radius: 0 5px 5px 0;
+text-align: center;
+text-decoration: none;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+display: flex;
+align-items: center;
+transform: rotate(-90deg); 
+transform-origin: left top; 
+z-index: 1000; /* Ensure it appears on top */
+transition: background-color 0.3s ease;
+}
+/* Heart Icon */
+.donate-button span {
+margin-right: 8px;
+font-size: 20px;
+animation: heartbeat 1s infinite;
+}
+
+
+/* Button hover effect */
+.donate-button:hover {
+background-color: #ff5252; /* Slightly lighter red on hover */
+}
+
+/* Heartbeat Animation */
+@keyframes heartbeat {
+0%, 100% {
+    transform: scale(1);
+    color: white;
+}
+50% {
+    transform: scale(1.3);
+    color: pink;
+}
+}
+
+/* Additional styling for the body and sections */
+body {
+font-family: 'Roboto', sans-serif; /* Updated font for consistency */
+margin: 0;
+padding: 0;
+background-color: #f4f4f4;
+}
+
+header {
+background-color: #00a9b7;
+padding: 0px;
+text-align: center;
+}
+
+header h1 {
+color: white;
+margin: 0;
+}
+
+section {
+display: flex;
+flex-wrap: wrap; /* Allow items to wrap for smaller screens */
+justify-content: space-between;
+align-items: center;
+padding: 100px;
+background-color: #e0f7fa;
+}
+
+
+
+
+
+/* Style for the modal header */
+.modal-header {
+background-color: #004d60;
+color: white;
+}
+
+/* Style for the donation buttons */
+.btn-check:checked + .btn-outline-primary {
+background-color: #004d60;
+border-color: #004d60;
+color: white;
+}
+
+.btn-outline-primary {
+border-color: #004d60;
+color: #004d60;
+}
+
+.btn-outline-primary:hover {
+background-color: #004d60;
+color: white;
+}
+
+/* Dropdown Menu with Image */
+#aboutDropdown + .dropdown-menu.custom-dropdown {
+width: 400px; /* Adjust the width as needed */
+padding: 20px;
+}
+
+.dropdown-menu.custom-dropdown .row {
+display: flex;
+align-items: center;
+}
+
+.dropdown-menu.custom-dropdown .links {
+flex: 1;
+}
+
+.dropdown-menu.custom-dropdown .links a {
+display: block;
+padding: 5px 0;
+color: #000000;
+}
+
+.dropdown-menu.custom-dropdown .links a:hover {
+color: #ffd700;
+}
+
+.dropdown-menu.custom-dropdown .image img {
+max-width: 100%;
+height: auto;
+border-radius: 5px;
+}
+
+/* Dropdown Menu with Image */
+#fitnessDropdown + .dropdown-menu.custom-dropdown {
+width: 500px; /* Adjust the width as needed */
+padding: 0px;
+}
+
+#fitnessDropdown + .dropdown-menu.custom-dropdown .row {
+display: flex;
+align-items: flex-start; /* Aligns items to the start to prevent overlap */
+}
+
+#fitnessDropdown + .dropdown-menu.custom-dropdown .links {
+flex: 1;
+}
+
+#fitnessDropdown + .dropdown-menu.custom-dropdown .links a {
+display: block;
+padding: 5px 0;
+color: #000000; /* Link color */
+}
+
+#fitnessDropdown + .dropdown-menu.custom-dropdown .links a:hover {
+color: #ffd700; /* Hover color */
+}
+
+#fitnessDropdown + .dropdown-menu.custom-dropdown .image img {
+max-width: 80%;
+height: auto;
+border-radius: 5px;
+}
+
+/* Dropdown Menu for Education & Awareness */
+#educationDropdown + .dropdown-menu.custom-dropdown {
+ /* Ensure dropdown does not exceed 90% of viewport width */
+width: 485px; /* Allow width to be responsive */
+padding: 10px;
+
+}
+
+#educationDropdown + .dropdown-menu.custom-dropdown .row {
+display: flex;
+align-items: flex-start; /* Aligns items to the start to prevent overlap */
+}
+
+#educationDropdown + .dropdown-menu.custom-dropdown .links {
+flex: 1; /* Allow the links column to grow */
+padding-right: 10px; /* Add some space between links and image */
+}
+
+#educationDropdown + .dropdown-menu.custom-dropdown .links a {
+display: block;
+padding: 5px 0; /* Increased padding for better clickability */
+color: #000000; /* Link color */
+}
+
+#educationDropdown + .dropdown-menu.custom-dropdown .links a:hover {
+color: #ffd700; /* Darker shade on hover */
+}
+
+#educationDropdown + .dropdown-menu.custom-dropdown .image {
+flex: 0 0 45%; /* Make the image take up 50% of the width */
+}
+
+#educationDropdown + .dropdown-menu.custom-dropdown .image img {
+max-width: 90%; /* Responsive image width */
+height: auto; /* Maintain aspect ratio */
+border-radius: 0px; /* Maintain rounded corners for images */
+}
+
+
+.card {
+display: flex;
+flex-direction: column; /* Ensure the card's content is stacked vertically */
+justify-content: space-between; /* Distribute space evenly */
+height: 100%; /* Make the card take full height of its container */
+}
+
+.card-img-top {
+height: 200px; /* Set a fixed height for all images */
+object-fit: cover; /* Ensure the image covers the area without stretching */
+}
+
+.card-body {
+flex-grow: 1; /* Allow the card body to take up remaining space */
+}
+
+/* Modal Styles */
+.modal.fade .modal-dialog {
+transition: transform 0.3s ease-out;
+}
+
+.modal.show .modal-dialog {
+transform: translate(0, 0);
+}
+
+/* Card Hover Effect */
+.card:hover {
+transform: translateY(-5px); /* Card lift effect */
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+}
+
+/* Button Styles */
+.btn-primary {
+background-color: #000000; /* Bootstrap primary color */
+border-color: #000000;
+transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-primary:hover {
+background-color: #000000; /* Darker shade on hover */
+transform: scale(1.05); /* Slightly increase size */
+}
+
+
+
+.modal-content {
+transition: transform 0.3s ease-in-out;
+}
+
+.modal.fade .modal-dialog {
+transition: transform 0.3s ease-in-out;
+}
+
+.text-center {
+padding: 0px;
+}
+
+a img {
+height: 100px; /* Set a fixed height for all partner logos */
+width: auto; /* Maintain aspect ratio */
 }
