@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancer Stories of Hope</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-sVn+g9j+zFK8JHbV+jA6gk5JxkC1+lBqik2N6mHHQvQ+J+m5Z5hQoIMQO1ZRgWKh0G2g8O7QeONRhBzqfV4Xlw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- AOS CSS for Animations -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS with data attributes for themes -->
+    <link id="theme-stylesheet" rel="stylesheet" href="{{ url_for('static', filename='css/light-theme.css') }}"
+        data-light="{{ url_for('static', filename='css/light-theme.css') }}"
+        data-dark="{{ url_for('static', filename='css/dark-theme.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+
+    <!-- Custom Styles -->
+    <style>
+        /* Navbar Styles */
+        .navbar {
+            background-color: #000000; /* Primary color for the navbar */
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a {
+            color: #000000; /* Changed to white for visibility */
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: #ffd700; /* Gold color on hover and active */
+        }
+
+        /* Hero Section Styles */
+        .hero-section {
+            background: url("{{ url_for('static', filename='images/hero-bg.jpg') }}") no-repeat center center;
+            background-size: cover;
+            color: #ffffff;
+            padding: 100px 0;
+            position: relative;
+            text-align: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 123, 255, 0.7);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Feature Images */
+        .feature-img {
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 40px 0;
+        }
+
+        footer a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #ffd700;
+            text-decoration: underline;
+        }
+
+        /* Smooth Scroll Behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle-btn {
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle-btn:hover {
+            transform: scale(1.1);
+        }
+    </style>
+
+    <style>
+        body {
+            background-color: #60707a;
+            color: #f5f5f5;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+        .inspiration-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 50px 0;
+            background-color: #7a8a94; /* Light grey background */
+        }
+        
+        .inspiration-section h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        .inspiration-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+        
+        .inspiration-section .btn {
+            padding: 10px 20px;
+            font-size: 1.1em;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .inspiration-section .btn:hover {
+            background-color: #0056b3;
+        }
+        
+
+        .articles-section {
+            background-color: #f5f5f5;
+            color: #60707a;
+            padding: 50px 0;
+        }
+
+        .articles-section h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+        }
+
+        .card-body h3 {
+            font-size: 1.5em;
+            color: #53636f;
+        }
+
+        .card-body p {
+            color: #53636f;
+        }
+
+        .card-body a {
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .stories-section {
+            background-color: #f5f5f5;
+            color: #60707a;
+            padding: 50px 0;
+        }
+        
+        .stories-section h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+        }
+
+        .story-image {
+            width: 100%;                /* Make the image take the full width of the card */
+            height: 200px;             /* Set a fixed height or adjust as needed */
+            object-fit: cover;         /* Cover the area while maintaining aspect ratio */
+            border-radius: 5px;        /* Optional: Add some rounding to corners */
+        }
+
+        .stories-section .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .stories-section .col-md-4 {
+            display: flex;
+            flex: 1 1 33%; /* Ensures all columns take up 1/3 of the row */
+            margin-bottom: 20px;
+        }
+        
+        .stories-section .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+        
+        .story-image {
+            width: 100%;
+            height: 200px; /* Fixed height for images */
+            object-fit: contain; /* Ensures the image fits well within the set height */
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .articles-section .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .articles-section .col-md-4 {
+            display: flex;
+            flex: 1 1 33%; /* Ensures all columns take up 1/3 of the row */
+            margin-bottom: 20px;
+        }
+        
+        .articles-section .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+        
+        
+        
+    </style>
+
+
+
+</head>
+
+<body>
+
+     <!-- Navigation Bar -->
+     <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="/">
+                <img src="{{ url_for('static', filename='images/download2.png') }}" alt="Cancer Detection System Logo" width="40" height="40" class="me-2 ">
+                <span class="fw-bold">Cancero</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    
+                    <!-- About Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            About
+                        </a>
+                        <div class="dropdown-menu custom-dropdown p-3" aria-labelledby="aboutDropdown">
+                            <div class="row">
+                                <!-- Links Column -->
+                                <div class="col-6 links">
+                                    <a class="dropdown-item" href="/Mission">Mission</a>
+                                    <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#teamModal">Our Team</a>
+                                    <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#partnersModal">Partners & Sponsors</a>
+                                    <a class="dropdown-item" href="/news">News</a>
+                                    <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#contactModal">Contact Us</a>
+                                </div>
+                                <!-- Image Column -->
+                                <div class="col-6 image">
+                                    <img src="{{ url_for('static', filename='images/about.webp') }}" alt="About Us Image" class="img-fluid" style="border-radius: 5px;">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- contact-modal.html -->
+
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered"> <!-- Use modal-lg for larger modals -->
+        <div class="modal-content" style="border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);">
+            <!-- Header -->
+            <div class="modal-header" style="background-color: #4b69c3; color: white;">
+                <h5 class="modal-title" id="contactModalLabel">Contact Us</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: white;"></button>
+            </div>
+
+            <!-- Body Section -->
+            <div class="modal-body" style="padding: 20px; background-color: #f7f7f7;">
+                <form>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="issue" class="form-label">Select Issue</label>
+                        <select class="form-select" id="issue" required>
+                            <option value="" disabled selected>Select an issue</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="technical">Technical Support</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="billing">Billing Issues</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Optional Footer -->
+            <div class="modal-footer" style="border-top: none; padding: 20px;">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="border-radius: 20px; padding: 10px 20px; background-color: #6C757D; color: white; border: none;">
+                    Close
+                </button>
+                <button type="submit" class="btn btn-primary" style="border-radius: 20px; padding: 10px 20px;">
+                    Send Message
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+          
+
+
+                    <!-- team-modal.html -->
+                 
+
+                    <div class="modal fade" id="teamModal" tabindex="-1" aria-labelledby="teamModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-centered"> <!-- Use modal-lg for larger modals -->
+                            <div class="modal-content" style="border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);">
+                                <!-- Header -->
+                                <div class="modal-header" style="background-color: #4b69c3; color: white;">
+                                    <h5 class="modal-title" id="teamModalLabel">Our Team Members</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: white;"></button>
+                                </div>
+                    
+            
+            <!-- Body Section -->
+            <div class="modal-body" style="padding: 20px; background-color: #f7f7f7;">
+                <div class="row">
+                    <!-- Team Member 1 -->
+                    <div class="col-12 col-sm-4 text-center mb-4 mb-sm-0">
+                        <div class="card" style="border-radius: 15px;">
+                            <img src="{{ url_for('static', filename='/images/Ankush.jpeg') }}" class="card-img-top" alt="Team Member 1" style="border-radius: 20px 15px 0 0;">
+                            <div class="card-body">
+                                <h5 class="card-title">Ankush Verma</h5>
+                                <p class="card-text">Role:Front-End Developer </p>
+                                <a href="https://www.linkedin.com/in/ankushv18/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-linkedin"></i> LinkedIn
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 2 -->
+                    <div class="col-12 col-sm-4 text-center mb-4 mb-sm-0">
+                        <div class="card" style="border-radius: 15px;">
+                            <img src="{{ url_for('static', filename='/images/Siddharth.jpg') }}" class="card-img-top" alt="Team Member 2" style="border-radius: 15px 15px 0 0;">
+                            <div class="card-body">
+                                <h5 class="card-title">Siddharth Mishra</h5>
+                                <p class="card-text">Role: AI Developer</p>
+                                <a href="https://www.linkedin.com/in/siddharth-mishra-0a5227228/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-linkedin"></i> LinkedIn
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 3 -->
+                    <div class="col-12 col-sm-4 text-center">
+                        <div class="card" style="border-radius: 15px;">
+                            <img src="{{ url_for('static', filename='/images/Manoday.jpg') }}" class="card-img-top" alt="Team Member 3" style="border-radius: 15px 15px 0 0;">
+                            <div class="card-body">
+                                <h5 class="card-title">Manoday Kadam</h5>
+                                <p class="card-text">Role: Model Developer</p>
+                                <a href="https://www.linkedin.com/in/manoday-kadam-3b1a74268/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-linkedin"></i> LinkedIn
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Optional Footer -->
+            <div class="modal-footer" style="border-top: none; padding: 20px;">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="border-radius: 20px; padding: 10px 20px; background-color: #6C757D; color: white; border: none;">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal Structure -->
+<div class="modal fade" id="partnersModal" tabindex="-1" aria-labelledby="partnersModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content" style="border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);">
+            <!-- Header -->
+            <div class="modal-header" style="background-color: #4b69c3; color: white;">
+                <h5 class="modal-title " id="partnersModalLabel" style="text-align: center;">Our Partners & Sponsors</h5>
+                
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: white;"></button>
+            </div>
+
+            <!-- Body Section -->
+            <div class="modal-body" style="padding: 20px; background-color: #f7f7f7;">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <!-- Partner 1 -->
+                        <div class="col-lg-6 col-md-6 text-center mb-4">
+                            <a href="https://devfolio.co/home/" target="_blank">
+                              
+                                  
+                                   
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 619.1 129" style="max-width: 150px;">
+                                        <defs>
+                                            <style>
+                                                .cls-1 {
+                                                    fill: #273339;
+                                                }
+                                                .cls-2 {
+                                                    fill: #3770ff;
+                                                }
+                                            </style>
+                                        </defs>
+                                        <title>Devfolio - Normal</title>
+                                        <g id="Layer_2" data-name="Layer 2">
+                                            <g id="Layer_1-2" data-name="Layer 1">
+                                                <path class="cls-1" d="M156,24h33.8a52.81,52.81,0,0,1,23.75,4.93,34.94,34.94,0,0,1,15.26,14.3,44.35,44.35,0,0,1,5.3,22.2,45,45,0,0,1-5.25,22.34,34.63,34.63,0,0,1-15.21,14.3A53.13,53.13,0,0,1,189.81,107H156Zm31.67,65a24.59,24.59,0,0,0,18.08-6,24.41,24.41,0,0,0,6-18.08,24.18,24.18,0,0,0-6-18.08A24.72,24.72,0,0,0,187.67,41H177V89Z"/>
+                                                <path class="cls-1" d="M298,82H262a12.66,12.66,0,0,0,4.34,8.09,14.45,14.45,0,0,0,9.09,2.45,28.89,28.89,0,0,0,16.26-5.27L297,100.9a34,34,0,0,1-10.45,5,42.52,42.52,0,0,1-12.17,1.82,38.07,38.07,0,0,1-17.22-3.63,26,26,0,0,1-11.18-10.45A31.3,31.3,0,0,1,242,77.68a32.21,32.21,0,0,1,3.68-15.54A26.58,26.58,0,0,1,256,51.47,29.39,29.39,0,0,1,271,47.66a25.44,25.44,0,0,1,19.53,8A32.07,32.07,0,0,1,298,77ZM262,72H280.2q-.68-10.31-9.09-10.31T262,72Z"/>
+                                                <path class="cls-1" d="M345.58,49h20.55l-25.91,58H322.88l-25.5-58h22l12.77,32.69Z"/>
+                                                <path class="cls-1" d="M403,50h13V65H402v42H381V65H371V50h10.71a23.35,23.35,0,0,1,8-17.86A38.06,38.06,0,0,1,412,25.31l7.22-.45,1.2,14.87-5.56.22a19.37,19.37,0,0,0-9.2,2A6.74,6.74,0,0,0,403,48Z"/>
+                                                <path class="cls-1" d="M434.43,104A26.48,26.48,0,0,1,423.3,93.51a31.3,31.3,0,0,1-3.91-15.95,31,31,0,0,1,3.91-15.9A26.3,26.3,0,0,1,434.38,51.3a40.48,40.48,0,0,1,33.53,0A26.3,26.3,0,0,1,479,61.66a31,31,0,0,1,3.91,15.9A31.3,31.3,0,0,1,479,93.51,26.58,26.58,0,0,1,467.68,104a39.75,39.75,0,0,1-33.43,0Zm27.85-26.26q0-14.54-11.13-14.54T440,77.74q0,14.54,11.13,14.54T462.27,77.74Z"/>
+                                                <path class="cls-1" d="M492,107V24h21v83Z"/>
+                                                <path class="cls-1" d="M525,20h22V39H525Zm0,86.86V49h21v58Z"/>
+                                                <path class="cls-1" d="M570.62,104a26.48,26.48,0,0,1-11.13-10.49,31.3,31.3,0,0,1-3.91-15.95,31,31,0,0,1,3.91-15.9A26.3,26.3,0,0,1,570.57,51.3a40.48,40.48,0,0,1,33.53,0,26.3,26.3,0,0,1,11.08,10.36,31,31,0,0,1,3.91,15.9,31.3,31.3,0,0,1-3.91,15.95A26.58,26.58,0,0,1,604,104a39.75,39.75,0,0,1-33.43,0Zm27.85-26q0-14.54-11.13-14.54T576.21,78q0,14.54,11.13,14.54T598.42,78Z"/>
+                                                <path class="cls-2" d="M118,70.7c.26,29.53-21.71,54.87-50.95,58.2a16.34,16.34,0,0,1-1.86.1c-5.82,0-37.28,0-48.9-.47a12.9,12.9,0,0,1-10.36-7.81,15.81,15.81,0,0,0,5.5,1.32c4,.36,11.06,0,20.69,0,10.25,0,21.33.09,26.64.14a46.78,46.78,0,0,0,8.46-.65A60.65,60.65,0,0,0,102,102.23a63.6,63.6,0,0,0,16-35.07Z"/>
+                                                <path class="cls-2" d="M113.34,58A58,58,0,0,1,61,116H12A14,14,0,0,1,0,102V14C0,7,5,0,12,0H62A57,57,0,0,1,113.34,58Z"/>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </a>
+                            </a>
+                            <p>Devfolio</p>
+                            <p class="small">Provides a platform for developers to showcase their projects and connect with opportunities.</p>
+                        </div>
+
+                        <!-- Partner 2 -->
+                        <div class="col-lg-6 col-md-6 text-center mb-4">
+                            <a href="https://www.startupindia.gov.in/" target="_blank">
+                                <img src="{{ url_for('static', filename='/images/StartupIndia.png') }}" alt="Startup India" class="img-fluid" style="max-width: 150px;">
+                            </a>
+                           
+                            <p>Startup India </p>
+                            <p class="small">Supports startups in India with resources and networking to help them grow and succeed.</p>
+                        </div>
+
+                        <!-- Partner 3 -->
+                    
+                        <div class="col-lg-6 col-md-6 text-center mb-4">
+                            <a href="https://www.google.com/about/careers/applications/?utm_campaign=profilepage&utm_medium=profilepage&utm_source=linkedin&src=Online/LinkedIn/linkedin_page" target="_blank">
+                                <img src="{{ url_for('static', filename='/images/google.webp') }}" alt="Google" class="img-fluid" style="max-width: 200px;">
+                            </a>
+                        
+                            <p>Google</p>
+                            <p class="small">A leader in technology and innovation, providing essential tools and resources for developers.</p>
+                        </div>
+
+                        <!-- Partner 4 -->
+                        <div class="col-lg-4 col-md-6 text-center mb-4">
+                            <a href="https://msh.meity.gov.in/" target="_blank">
+                                <img src="{{ url_for('static', filename='/images/miety.png') }}" alt="MEITY Startup Hub" class="img-fluid" style="max-width: 150px;">
+                            </a>
+                            <p>MEITY Startup Hub</p>
+                            <p class="small">Focuses on promoting innovation and entrepreneurship through various initiatives and support programs.</p>
+                        </div>
+                        <!-- Add more partners/sponsors as necessary -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Optional Footer -->
+            <div class="modal-footer" style="border-top: none; padding: 20px;">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="border-radius: 20px; padding: 10px 20px; background-color: #6C757D; color: white; border: none;">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+                    <!-- Fitness & Wellness Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="fitnessDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Fitness & Wellness
+                        </a>
+                        <div class="dropdown-menu custom-dropdown p-3" aria-labelledby="fitnessDropdown">
+                            <div class="row">
+                                <!-- Links Column -->
+                                <div class="col-6 links">
+                                    <a class="dropdown-item" href="/personalized-plans">Health Dashboard</a>
+                                  
+                                    <a class="dropdown-item" href="/virtual-workouts">Virtual Workout Sessions</a>
+                                   <a class="dropdown-item" href="/nutritional-guidance">Nutritional Guidance</a>
+                                    
+                                </div>
+                                <!-- Image Column -->
+                                <div class="col-6 image">
+                                    <img src="{{ url_for('static', filename='images/Fitness.webp') }}" alt="Fitness & Wellness Image" class="img-fluid" style="border-radius: 5px;">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Education & Awareness Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="educationDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Education & Awareness
+                        </a>
+                        <div class="dropdown-menu custom-dropdown p-3" aria-labelledby="educationDropdown">
+                            <div class="row">
+                                <!-- Links Column -->
+                                <div class="col-6 links">
+                                    <a class="dropdown-item" href="/cancer-journey-stories">Cancer Journey Stories</a>
+                                    <a class="dropdown-item" href="/webinars-workshops">Webinars and Workshops</a>
+                                    <a class="dropdown-item" href="/virtual-reality">Virtual Reality (VR) Experiences</a>
+                                    <a class="dropdown-item" href="/health-literacy">Health Literacy Quizzes and Tools</a>
+                                </div>
+                                <!-- Image Column -->
+                                <div class="col-6 image">
+                                    <img src="{{ url_for('static', filename='images/education.jpeg') }}" alt="Education & Awareness Image" class="img-fluid" style="border-radius: 5px;">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/doctors">Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/charts">Charts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/upload">Upload Files</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/upload_pdf">Past Reports</a>
+                    </li>
+
+                    <!-- Theme Toggle Button -->
+                    <li class="nav-item">
+                        <button class="btn btn-outline-light ms-3 theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle Theme">
+                            <i class="fas fa-moon" id="theme-toggle-icon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+<!-- Donate Button -->
+<a href="#" class="donate-button" data-bs-toggle="modal" data-bs-target="#paymentModal">
+    <span>&hearts;</span> Donate
+</a>
+
+<!-- Modal HTML -->
+<div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); transition: transform 0.3s;">
+
+            <!-- Header -->
+            <div class="modal-header" style="background-color: #2F80ED; color: white;">
+                <h5 class="modal-title" id="paymentModalLabel">Secure Payment</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: white;"></button>
+            </div>
+            
+            <!-- Image Section -->
+            <div class="payment-image" style="background-image: url('/static/images/donation.webp'); background-size: contain; background-position: center; height: 200px;">
+                <!-- Optional Overlay -->
+                <div class="image-overlay">
+                    <h2>Select Payment Method</h2>
+                </div>
+            </div>
+
+            <!-- Body Section -->
+            <div class="modal-body" style="padding: 20px; background-color: #f7f7f7;">
+                <p style="font-size: 16px; color: #333;">Please choose your preferred payment method:</p>
+
+                <!-- Payment Method Options -->
+                <form>
+                    <div class="btn-group" role="group" aria-label="Payment Options" style="display: flex; justify-content: space-around;">
+                        <input type="radio" class="btn-check" name="paymentMethod" id="paymentGPay" autocomplete="off" value="gpay">
+                        <label class="btn payment-btn" for="paymentGPay">GPay</label>
+
+                        <input type="radio" class="btn-check" name="paymentMethod" id="paymentPaytm" autocomplete="off" value="paytm">
+                        <label class="btn payment-btn" for="paymentPaytm">Paytm</label>
+
+                        <input type="radio" class="btn-check" name="paymentMethod" id="paymentCard" autocomplete="off" value="card">
+                        <label class="btn payment-btn" for="paymentCard">Card</label>
+
+                        <input type="radio" class="btn-check" name="paymentMethod" id="paymentUPI" autocomplete="off" value="upi">
+                        <label class="btn payment-btn" for="paymentUPI">UPI</label>
+
+                        <input type="radio" class="btn-check" name="paymentMethod" id="paymentNetBanking" autocomplete="off" value="NetBanking">
+                        <label class="btn payment-btn" for="paymentNetBanking">Net Banking</label>
+                    </div>
+
+                    <!-- Offers Section -->
+                    <div class="form-check mt-4" style="font-size: 14px;">
+                        <input class="form-check-input" type="checkbox" id="applyOffers" style="margin-right: 10px;">
+                        <label class="form-check-label" for="applyOffers" style="color: #333;">
+                            Apply available offers
+                        </label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="modal-footer" style="border-top: none; padding: 20px;">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="border-radius: 20px; padding: 10px 20px; background-color: #6C757D; color: white; border: none;">
+                            Close
+                        </button>
+                        <button type="submit" class="btn btn-primary" style="background-color: #2F80ED; border: none; border-radius: 20px; padding: 10px 20px; transition: transform 0.3s;">
+                            Proceed to Pay
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Custom Styles -->
+<style>
+    .payment-image {
+        position: relative;
+    }
+
+    .image-overlay {
+        background-color: rgba(0, 0, 0, 0.5);
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    .image-overlay h2 {
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        font-size: 36px;
+        font-weight: bold;
+    }
+
+    .image-overlay:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .payment-btn {
+        background-color: #2D9CDB; /* Default color */
+        color: white;
+        border-radius: 20px;
+        padding: 10px 20px;
+        border: none;
+        transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .payment-btn:hover {
+        transform: scale(1.05);
+        background-color: #1B7DD8; /* Darker shade on hover */
+    }
+</style>
+
+
+
+    <!-- Inspiration Section -->
+    <section class="inspiration-section">
+        <h1>Inspiration from Survivors</h1>
+        <p>Until there is a cure for cancer, long-term survivors are the key to finding answers.</p>
+        <button id="openModal" class="btn">Share Your Story of Hope</button>
+    </section>
+
+
+<!-- Modal -->
+<div id="storyModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Share Your Story of Hope</h2>
+        <form id="hopeForm" action="#" method="POST" enctype="multipart/form-data">
+            <p>Provide hope that it can be done.</p>
+            <p>The details of your treatment plan and cancer journey provide invaluable, trusted guidance to those searching for answers from survivors.</p>
+            
+            <label for="email">Email Address (This Will not be shared publicly)*</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="full-name">Your FULL Name *</label>
+            <input type="text" id="full-name" name="full-name" required>
+            
+            <label for="cancer-diagnosis">Cancer Diagnosis (type) and Stage *</label>
+            <input type="text" id="cancer-diagnosis" name="cancer-diagnosis" required>
+            
+            <label for="multiple-cancers">Did you have multiple cancers? If so, please list them all and what stage/grade</label>
+            <textarea id="multiple-cancers" name="multiple-cancers"></textarea>
+            
+            <label for="age-diagnosis">Age at diagnosis *</label>
+            <input type="number" id="age-diagnosis" name="age-diagnosis" required>
+            
+            <label for="date-diagnosis">Date of diagnosis *</label>
+            <input type="date" id="date-diagnosis" name="date-diagnosis" required>
+            
+            <label for="symptoms">What were your symptoms? How did you know something wasn't right?*</label>
+            <textarea id="symptoms" name="symptoms" required></textarea>
+
+            <!-- Add other fields as necessary -->
+
+            <label for="upload-story">Share your story! Upload a writeup of your experience:</label>
+            <input type="file" id="upload-story" name="upload-story" accept=".docx,.pdf" required>
+            
+            <label for="upload-photo">Please share a photo of yourself*</label>
+            <input type="file" id="upload-photo" name="upload-photo" accept="image/*" required>
+            
+            <label>
+                <input type="checkbox" name="agree" required> By Clicking on this checkbox, you agree on sharing your story and the answers provided above publicly on this website.
+            </label>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+<!-- Modal CSS -->
+<style>
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        overflow: auto;
+    }
+
+    .modal-content {
+        background-color: white;
+        margin: 10% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 600px;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    label {
+        display: block;
+        margin: 10px 0 5px;
+    }
+
+    input, textarea, select {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    button[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    .btn {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+
+<script>
+    // JavaScript code for modal functionality
+    const modal = document.getElementById('storyModal');
+    const openModalBtn = document.getElementById('openModal');
+    const closeModal = document.getElementsByClassName('close')[0];
+
+    openModalBtn.onclick = function() {
+        modal.style.display = 'block';
+    }
+
+    closeModal.onclick = function() {
+        modal.style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    }
+</script>
+
+
+
+
+    <!-- Cancer Stories Section -->
+<section class="stories-section">
+    <div class="container">
+        <h2>Cancer Stories</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="static/images/Aidan.jpg" alt="Aidan Morris" class="story-image" />
+
+                        <h3>Triple Negative Breast Cancer & Melanoma</h3>
+                        <p>Aidan Morris: My perspective changed in the most wonderful way. Cancer is the best worst thing to happen to me.</p>
+                        <a href="https://www.docancer.org/stories-of-hope/aidan-morris" target="_blank">Continue Reading...</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="static/images/Allie.jpg" alt="Allie Bertocchini" class="story-image">
+                        <h3>Breast Cancer</h3>
+                       
+                        <p>Allie Bertocchini: My family is stronger than ever. I allow myself to take the time that I need to be healthy...</p>
+                        <a href="https://www.docancer.org/stories-of-hope/allie-bertocchini" target="_blank">Continue Reading...</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="static/images/Allison.jpg" alt="Allison Rosen" class="story-image">
+                        <h3>Colorectal Cancer</h3>
+                        <p>Allison Rosen: I chose to deliberately and consciously dedicate my life - in and outside of my employment...</p>
+                        <a href="https://www.docancer.org/stories-of-hope/allison-rosen" target="_blank">Continue Reading...</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="static/images/Angelina.jpg" alt="Angelina Maselli" class="story-image">
+                        <h3>Hodgkins Lymphoma</h3>
+                        <p>Angelina Maselli: If I could go back in time and decide my own fate, I would allow myself to get cancer...</p>
+                        <a href="https://www.docancer.org/stories-of-hope/angelina-maselli" target="_blank">Continue Reading...</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="static/images/Anna.jpg" alt="Annamaria Scaccia" class="story-image">
+                        <h3>Renal Cell Carcinoma</h3>
+                        <p>Annamaria Scaccia: Cancer showed me that my time is precious, that my relationships are precious...</p>
+                        <a href="https://www.docancer.org/stories-of-hope/annamaria-scaccia" target="_blank">Continue Reading...</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="static/images/Bill.jpg" alt="Bill Thon" class="story-image">
+                        <h3>Metastatic Lung Cancer</h3>
+                        <p>Bill Thon: I am more vital, energetic, optimistic and hopeful for an inspired future...</p>
+                        <a href="https://www.docancer.org/stories-of-hope/bill-thon" target="_blank">Continue Reading...</a>
+                    </div>
+                </div>
+            </div>
+           
+</section>
+
+    <!-- Featured Articles Section -->
+    <section class="articles-section">
+        <div class="container">
+            <h2>Featured Articles</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3>9 Great Books to Buy Someone with Cancer</h3>
+                            <p>Book suggestions for those in cancer treatment depending on where they are in their journey and what they're interested in.</p>
+                            <a href="https://www.docancer.org/blog/8-great-books-to-buy-someone-with-cancer" target="_blank">Continue Reading...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3>Scared of Chemo? Read this</h3>
+                            <p>I did 3 years of intense treatment. Was it a walk in the park? Heck no. Was it tolerable? Yes. Let me tell you how I got through it.</p>
+                            <a href="https://www.docancer.org/blog/hit-cancer-with-a-hammer-focus-on-whole-person-healing"target="_blank">Continue Reading...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybXPlpR51zH7v6F9cZ6g8sW2zR/d/Pu3/0JqEQt1lvL9h7xdP" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-Z9y7ZaKGo5/Y44zSHl9mIn6DjIs05AdKVhSOi5N5CwU+LmsD7T5d99RzR32K1Hd6" crossorigin="anonymous"></script>
+
+    <!-- AOS JS for animations -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap JS (for modal functionality) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center py-3">
+        <p>&copy; 2024 Cancer Stories of Hope. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
