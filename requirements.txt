@@ -13,3 +13,4 @@ python-dotenv
 google-generativeai
 beautifulsoup4
 gunicorn
+PyPDF2
