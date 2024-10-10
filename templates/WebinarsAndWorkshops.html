@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webinars and Workshops</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-sVn+g9j+zFK8JHbV+jA6gk5JxkC1+lBqik2N6mHHQvQ+J+m5Z5hQoIMQO1ZRgWKh0G2g8O7QeONRhBzqfV4Xlw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- AOS CSS for Animations -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS with data attributes for themes -->
+    <link id="theme-stylesheet" rel="stylesheet" href="{{ url_for('static', filename='css/light-theme.css') }}"
+        data-light="{{ url_for('static', filename='css/light-theme.css') }}"
+        data-dark="{{ url_for('static', filename='css/dark-theme.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+
+</head>
+<body>
+    <section class="education-awareness-section">
+        <h2>Webinars and Workshops</h2>
+        <p>Join our informative webinars and workshops to learn from experts in the field of oncology. Gain insights into various aspects of cancer care, treatment options, and survivor experiences.</p>
+
+        <div class="event">
+            <h3>Understanding Breast Cancer Treatment Options</h3>
+            <p><strong>Date:</strong> October 15, 2024</p>
+            <p><strong>Time:</strong> 3:00 PM - 4:30 PM EST</p>
+            <p><strong>Description:</strong> Learn about the latest treatment options for breast cancer from leading oncologists.</p>
+            <a href="#" class="btn">Register Now</a>
+        </div>
+
+        <div class="event">
+            <h3>Nutrition and Wellness for Cancer Survivors</h3>
+            <p><strong>Date:</strong> October 22, 2024</p>
+            <p><strong>Time:</strong> 1:00 PM - 2:30 PM EST</p>
+            <p><strong>Description:</strong> Explore dietary recommendations and wellness strategies that can aid recovery and improve quality of life.</p>
+            <a href="#" class="btn">Register Now</a>
+        </div>
+
+        <h3>Past Events</h3>
+        <ul>
+            <li><a href="#">Living with Cancer: A Survivor's Journey - Recorded on September 20, 2024</a></li>
+            <li><a href="#">Emotional Support and Mental Health for Patients - Recorded on August 15, 2024</a></li>
+        </ul>
+
+        <p>Stay informed about our upcoming events! <a href="#">Subscribe to our newsletter</a>.</p>
+
+        <p>For more information, please contact us at <a href="mailto:info@cancerawareness.org">info@cancerawareness.org</a>.</p>
+    </section>
+
+
+     <!-- Bootstrap JS and dependencies -->
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybXPlpR51zH7v6F9cZ6g8sW2zR/d/Pu3/0JqEQt1lvL9h7xdP" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-Z9y7ZaKGo5/Y44zSHl9mIn6DjIs05AdKVhSOi5N5CwU+LmsD7T5d99RzR32K1Hd6" crossorigin="anonymous"></script>
+ 
+     <!-- AOS JS for animations -->
+     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+     <script>
+         AOS.init();
+     </script>
+ 
+ 
+ <!-- Bootstrap CSS -->
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+ 
+ <!-- Bootstrap JS (for modal functionality) -->
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+ 
+
+
+
+</body>
+</html>
