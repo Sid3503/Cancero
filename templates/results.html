@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prediction Results</title>
+    <title>Prediction Results</title> 
     <!-- Link to custom styles -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <!-- Bootstrap CSS -->
@@ -14,63 +14,174 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <style>
+        .navbar a {
+            color: black; /* Black text for navbar links */
+            transition: color 0.3s, background-color 0.3s; /* Smooth transition for color change */
+            padding: 10px 15px; /* Padding for better hover effect */
+        }
+
+        .navbar a:hover {
+            color: #ffd700; /* Gold color on hover */
+            background-color: rgba(255, 255, 255, 0.1); /* Light background color on hover */
+            border-radius: 5px; /* Rounded corners on hover */
+        }
+
+        .navbar a.active {
+            color: #ffd700; /* Gold color for the active link */
+        }
+
+        /* Style for the plot image */
+        .plot-img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        /* Style for the uploaded image */
+        .uploaded-img {
+            max-width: 100%;
+            height: auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        /* Optional: Style adjustments for better layout */
+        .results-section {
+            margin-top: 20px;
+        }
+
+        /* Adjust card titles */
+        .card-title {
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        /* Scrollable insights if content is long */
+        .scrollable-results {
+            max-height: 520px;
+            overflow-y: auto;
+        }
+
+        /* Ensure cards stretch to the same height */
+        .card {
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s; /* Transition for hover effect */
+        }
+
+        .card:hover {
+            transform: scale(1.02); /* Slightly enlarge on hover */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+        }
+
+        .card-body {
+            flex: 1;
+        }
+
+        /* Style for the uploaded image card */
+        .uploaded-image-card {
+            max-width: 200px; /* Adjust the width as needed */
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-    <!-- Update the existing navbar -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">Cancer Detection System</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="/">
+                <img src="{{ url_for('static', filename='images/download2.png') }}" alt="Cancer Detection System Logo" width="30" height="30" class="d-inline-block align-text-top" aria-label="Cancer Detection System Logo">
+                Cancero
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        <a class="nav-link" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/doctors">Doctors</a>  <!-- New link to Doctors -->
+                        <a class="nav-link" href="/doctors">Doctors</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/news">Recent Development</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="/charts">Charts</a>
-                </li>      
-                <li class="nav-item">
-                    <a class="nav-link" href="/upload">Upload Cancer Detection Files</a>
-                </li>
+                        <a class="nav-link" href="/charts">Charts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/upload">Upload Cancer Detection Files</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/upload_pdf">Past Reports</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Main Container -->
-    <div class="container my-4">
-        <h2>Results for {{ file_type }}: {{ file_name }}</h2>
-        <p>Prediction: <strong>{{ prediction }}</strong></p>
-        
-        <!-- Card for displaying results -->
-        <div class="card mb-4">
-            <div class="card-body scrollable-results">
-                <h4 class="card-title">GENERATED INSIGHTS</h4>
-                <div class="column-content">
-                    {{ insights | safe }}  <!-- This displays the generated insights -->
+    <!-- Uploaded Image Card -->
+{% if uploaded_image %}
+<div class="container my-2">  <!-- Changed from my-4 to my-2 -->
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <div class="card uploaded-image-card">
+                <div class="card-body">
+                    <h5 class="card-title">Uploaded Image</h5>
+                    <img src="data:image/png;base64,{{ uploaded_image }}" alt="Uploaded Image" class="uploaded-img">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<!-- Main Container -->
+<div class="container my-2">  <!-- Changed from my-4 to my-2 -->
+    <div class="row results-section d-flex align-items-stretch">
+        <!-- Left Column: Prediction and Insights -->
+        <div class="col-md-6">
+            <div class="card mb-4 h-100">
+                <div class="card-body scrollable-results">
+                    <h4 class="card-title">Results for {{ file_type }}: {{ file_name }}</h4>
+                    <p>Prediction: <strong>{{ prediction }}</strong></p>
+                    
+                    <h4 class="card-title">GENERATED INSIGHTS</h4>
+                    <div class="column-content">
+                        {{ insights | safe }}  <!-- This displays the generated insights -->
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="form-container my-4">
-            <a href="{{ url_for('index') }}">
-                <button class="btn btn-custom">
-                    <i class="bi bi-arrow-left-circle"></i> Go Back
-                </button>
-            </a>
+        <!-- Right Column: Probability Plot -->
+        <div class="col-md-6">
+            {% if plot_url %}
+            <div class="card mb-4 h-100">
+                <div class="card-body d-flex flex-column">
+                    <h4 class="card-title">Prediction Probabilities</h4>
+                    <img src="data:image/png;base64,{{ plot_url }}" alt="Probability Plot" class="plot-img mt-auto">
+                </div>
+            </div>
+            {% endif %}
         </div>
     </div>
 
+    <div class="form-container my-2">  <!-- Adjust this if needed -->
+        <a href="{{ url_for('index') }}">
+            <button class="btn btn-custom">
+                <i class="bi bi-arrow-left-circle"></i> Go Back
+            </button>
+        </a>
+    </div>
+</div>
+
     
+
     <!-- Bootstrap JS and dependencies -->
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
