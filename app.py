@@ -21,7 +21,6 @@ import urllib.parse
 from openai import OpenAI
 
 client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
-from nutrition_advisor import NutritionAdvisor
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads/'
