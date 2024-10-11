@@ -69,7 +69,6 @@ def cancer_journey_stories():
      # Call the function to generate stories
     return render_template('cancer-journey-stories.html')
 
-
 # Home Route
 @app.route('/')
 def index():
@@ -139,21 +138,34 @@ def upload_image():
             filename = secure_filename(file.filename)
             file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             file.save(file_path)
+
+            threshold = 0.9
             
             # Read and encode the uploaded image
             with open(file_path, "rb") as image_file:
                 encoded_image = base64.b64encode(image_file.read()).decode('utf-8')
             
             # Call model prediction for image
-            prediction, probabilities, class_names = pred_and_plot(file_path, img_shape=224)
+            prediction, probabilities, class_names, raw_pred = pred_and_plot(file_path, img_shape=224)
+
+            max_prob = np.max(raw_pred)
+            
+
+            # Log the probabilities for debugging
+            logging.info(f'Prediction: {prediction}')
+            logging.info(f'Probabilities: {probabilities}')
+            logging.info(f'Class Names: {class_names}')
 
             # Generate medical insights
             insights_md = generate_insights(predicted_label=prediction, file_type="Image")
             insights_html = markdown.markdown(insights_md)
             
+            # Store insights_md in session
+            session['insights_ctmri_md'] = insights_md
+
             # Generate the probability plot
             img = io.BytesIO()
-            plt.figure(figsize=(10, 6))
+            plt.figure(figsize=(6, 4))  # Smaller figure size
             bars = plt.bar(class_names, probabilities, color='skyblue')
             plt.xlabel('Classes')
             plt.ylabel('Probability (%)')
@@ -164,7 +176,7 @@ def upload_image():
             # Add probability labels on top of each bar
             for bar, prob in zip(bars, probabilities):
                 height = bar.get_height()
-                plt.text(bar.get_x() + bar.get_width()/2.0, height, f'{prob}%', ha='center', va='bottom')
+                plt.text(bar.get_x() + bar.get_width()/2.0, height, f'{prob:.2f}%', ha='center', va='bottom')
 
             plt.tight_layout()
             plt.savefig(img, format='png')
@@ -172,17 +184,55 @@ def upload_image():
             img.seek(0)
             plot_url = base64.b64encode(img.getvalue()).decode()
 
+            # Log the plot URL length to ensure it's being generated
+            logging.info(f'Plot URL length: {len(plot_url)}')
+
             # Delete the uploaded image after encoding
             os.remove(file_path)
             logging.info(f'Deleted image file: {file_path}')
 
-            return render_template(
+            if max_prob < threshold:
+                message = (
+                        "Outlier detected: This image does not belong to any of the cancer types our model currently supports. "
+                        "We are continuously scaling our model to accommodate more cancer classes in the future. As of now, "
+                        "the model accurately detects the following cancer types:\n\n"
+                        "- Colon Adenocarcinoma\n"
+                        "- Colon Benign Tissue\n"
+                        "- Lung Adenocarcinoma\n"
+                        "- Lung Benign Tissue\n"
+                        "- Lung Squamous Cell Carcinoma\n"
+                        "- Brain Glioma\n"
+                        "- Brain Meningioma\n"
+                        "- Brain No Tumor\n"
+                        "- Brain Pituitary\n"
+                        "- Breast Cancer\n"
+                        "- Breast Non-Cancer\n"
+                        "- Lung Benign\n"
+                        "- Lung Malignant\n"
+                        "- Lung Normal\n\n"
+                        "Stay tuned as we expand our model to cover additional cancer types, providing more comprehensive support for cancer detection."
+                    )
+                
+                
+                return render_template(
+                    'results.html',
+                    prediction=prediction,
+                    file_type='Image',
+                    file_name=filename,
+                    insights=message,
+                    plot_url=plot_url,         # Pass the plot URL to the template
+                    uploaded_image=encoded_image
+                )
+                
+
+            else:
+                return render_template(
                 'results.html',
                 prediction=prediction,
                 file_type='Image',
                 file_name=filename,
                 insights=insights_html,
-                plot_url=plot_url,       # Pass the plot URL to the template
+                plot_url=plot_url,         # Pass the plot URL to the template
                 uploaded_image=encoded_image  # Pass the uploaded image to the template
             )
         except Exception as e:
@@ -321,10 +371,10 @@ def news():
 @app.route('/charts', methods=['GET', 'POST'])
 def charts():
     # Load the first CSV file for ASR (World) data
-    asr_df = pd.read_csv('data/dataset-asr-inc-both-sexes-in-2022-world.csv')
+    asr_df = pd.read_csv('C:/Users/Siddharth/Desktop/devFinal/data/dataset-asr-inc-both-sexes-in-2022-world.csv')
 
     # Load the second CSV file for Mortality data
-    mortality_df = pd.read_csv('data/dataset-asr-mort-both-sexes-in-2022-world.csv')
+    mortality_df = pd.read_csv('C:/Users/Siddharth/Desktop/devFinal/data/dataset-asr-mort-both-sexes-in-2022-world.csv')
 
     # Extract 'Label' and 'ASR (World)' columns for the ASR chart and drop any NaN values
     asr_data = asr_df[['Label', 'ASR (World)']].dropna()
@@ -332,7 +382,7 @@ def charts():
     # Extract 'Label' and 'Total' columns for the Mortality chart and drop any NaN values
     mortality_data = mortality_df[['Label', 'ASR (World)']].dropna()
 
-    prevalent_all_df = pd.read_csv('data/dataset-estimated-number-of-prevalent-cases-1-year-both-sexes-in-2022-all-cancers.csv')
+    prevalent_all_df = pd.read_csv('C:/Users/Siddharth/Desktop/devFinal/data/dataset-estimated-number-of-prevalent-cases-1-year-both-sexes-in-2022-all-cancers.csv')
     prevalent_all_df = prevalent_all_df.drop_duplicates(subset='Label')
 
     pie_all_labels = prevalent_all_df['Label'].tolist()
@@ -356,7 +406,7 @@ def charts():
         pie_all_colors = (pie_all_colors * factor)[:len(pie_all_labels)]
 
 
-    prevalent_cancer_df = pd.read_csv('data/dataset-estimated-number-of-prevalent-cases-1-year-both-sexes-in-2022-continents.csv')
+    prevalent_cancer_df = pd.read_csv('C:/Users/Siddharth/Desktop/devFinal/data/dataset-estimated-number-of-prevalent-cases-1-year-both-sexes-in-2022-continents.csv')
 
     prevalent_cancer_df = prevalent_cancer_df.drop_duplicates(subset='Label')
 
@@ -385,12 +435,12 @@ def charts():
     asr_chart_data = asr_data.to_dict(orient='records')
     mortality_chart_data = mortality_data.to_dict(orient='records')
 
-    scatter_df = pd.read_csv("data/dataset-mort-asr-world-vs-inc-asr-world-both-sexes-in-2022-all-cancers.csv")
+    scatter_df = pd.read_csv("C:/Users/Siddharth/Desktop/devFinal/data/dataset-mort-asr-world-vs-inc-asr-world-both-sexes-in-2022-all-cancers.csv")
 
     scatter_data = scatter_df[['Population', 'Incidence - ASR (World)', 'Mortality - ASR (World)']].to_dict(orient='records')
 
     # Creating a new column for ASR Asia
-    df_full = pd.read_csv("data/dataset-asr-inc-both-sexes-in-2022-world-vs-asia.csv")
+    df_full = pd.read_csv("C:/Users/Siddharth/Desktop/devFinal/data/dataset-asr-inc-both-sexes-in-2022-world-vs-asia.csv")
     asr_asia_values = df_full.groupby("Label")["ASR (World)"].transform(lambda x: x.iloc[1] if len(x) > 1 else None)
 
     # Adding the ASR Asia column to the DataFrame
@@ -440,7 +490,7 @@ def upload_ct_mri():
             prediction, probabilities, class_names, raw_pred = predict_cancer_for_ctmri(file_path, img_shape=224)
 
             max_prob = np.max(raw_pred)
-            
+            confidence_score = max_prob * 100  # Calculate confidence score as a percentage
 
             # Log the probabilities for debugging
             logging.info(f'Prediction: {prediction}')
@@ -483,6 +533,7 @@ def upload_ct_mri():
             logging.info(f'Deleted CT/MRI image file: {file_path}')
 
             if max_prob < threshold:
+                prediction = "Outlier"
                 message = (
                         "Outlier detected: This image does not belong to any of the cancer types our model currently supports. "
                         "We are continuously scaling our model to accommodate more cancer classes in the future. As of now, "
@@ -512,9 +563,10 @@ def upload_ct_mri():
                     file_name=filename,
                     insights=message,
                     plot_url=plot_url,         # Pass the plot URL to the template
-                    uploaded_image=encoded_image
+                    uploaded_image=encoded_image,
+                    confidence_score=confidence_score  # Pass the confidence score
                 )
-                
+            
 
             else:
                 return render_template(
@@ -524,7 +576,8 @@ def upload_ct_mri():
                 file_name=filename,
                 insights=insights_html,
                 plot_url=plot_url,         # Pass the plot URL to the template
-                uploaded_image=encoded_image  # Pass the uploaded image to the template
+                uploaded_image=encoded_image,  # Pass the uploaded image to the template
+                confidence_score=confidence_score  # Pass the confidence score
             )
         except Exception as e:
             logging.error(f'Error processing image: {str(e)}')
@@ -534,6 +587,7 @@ def upload_ct_mri():
     else:
         flash('Invalid image file type')
         return redirect('/')
+
     
 
 @app.route('/personalized-plans')
