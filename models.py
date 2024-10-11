@@ -7,7 +7,7 @@ from keras.optimizers import Adam
 from PIL import Image
 
 # Path to the model file
-modelSavePath = "C:/Users/Siddharth/Desktop/devFinal/lung_colon_model1.h5"
+modelSavePath = "lung_colon_model1.h5"
 model_1 = load_model(modelSavePath)
 
 
@@ -39,7 +39,7 @@ def pred_and_plot(filename, img_shape=224):
     return pred_class, pred_percentages.tolist(), class_names
 
 
-model2_save_path = "C:/Users/Siddharth/Desktop/devFinal/brain-lung-breast.h5"
+model2_save_path = "brain-lung-breast.h5"
 model_2 = load_model(model2_save_path)
 
 
