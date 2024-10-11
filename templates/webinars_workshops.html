@@ -553,14 +553,6 @@
                         <label class="btn payment-btn" for="webinarPaymentNetBanking">Net Banking</label>
                     </div>
 
-                    <!-- Offers Section -->
-                    <div class="form-check mt-4" style="font-size: 14px;">
-                        <input class="form-check-input" type="checkbox" id="applyWebinarOffers" style="margin-right: 10px;">
-                        <label class="form-check-label" for="applyWebinarOffers" style="color: #333;">
-                            Apply available offers
-                        </label>
-                    </div>
-
                     <!-- Submit Button -->
                     <div class="modal-footer" style="border-top: none; padding: 20px;">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="border-radius: 20px; padding: 10px 20px; background-color: #6C757D; color: white; border: none;">
@@ -653,9 +645,7 @@
         <h1>Webinars and Workshops</h1>
         <p>Explore our upcoming and past webinars and workshops focused on cancer awareness and education.</p>
     </header>
-
-  
-<!-- Featured Events Carousel -->
+    <!-- Featured Events Carousel -->
 <div class="container mb-3">
     <div id="featuredCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
         <div class="carousel-inner">
@@ -696,27 +686,42 @@
     /* Change the background color and border for the carousel control buttons */
     .carousel-control-prev,
     .carousel-control-next {
-        background-color: #007bff; /* Replace with your desired color */
-        border-radius: 10%; /* Optional: to make the buttons circular */
+        background-color: transparent; /* Make background transparent */
+        border: none; /* Remove border */
+        color: #007bff; /* Change color of the arrow */
+        font-size: 30px; /* Increase font size for better visibility */
     }
 
-    /* Change the color of the icons inside the buttons */
+    /* Add custom arrow icons */
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
-        background-color: white; /* Background color for icons */
-        border-radius: 10%; /* Optional: to make the icons circular */
+        display: none; /* Hide default icons */
+    }
+
+    /* Create custom arrows using pseudo-elements */
+    .carousel-control-prev::before {
+        content: '←'; /* Left arrow */
+        font-size: 40px; /* Size of the arrow */
+        color: #007bff; /* Color of the arrow */
+    }
+
+    .carousel-control-next::before {
+        content: '→'; /* Right arrow */
+        font-size: 40px; /* Size of the arrow */
+        color: #007bff; /* Color of the arrow */
     }
 
     /* Optional: Change hover effects */
-    .carousel-control-prev:hover,
-    .carousel-control-next:hover {
-        background-color: #0056b3; /* Darker shade for hover effect */
+    .carousel-control-prev:hover::before,
+    .carousel-control-next:hover::before {
+        color: #0056b3; /* Darker shade for hover effect */
     }
 
     .carousel-inner {
         text-align: center; /* Centers all carousel content */
-    }
+    }
 </style>
+
     <!-- Main Content -->
     <div class="container  ">
         <!-- Filters or Categories -->
