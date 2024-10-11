@@ -1,4 +1,22 @@
-# Breast-Cancer-Detection
+# Cancero
 
+This project is a Flask-based web application that allows users to upload medical images or PDFs, and it provides detailed insights by utilizing AI-generated summaries and predictions. The application uses a convolutional neural network (CNN) model for image classification and a generative model for creating structured insights from both images and PDF files.
 
-We propose a method for the classification of hematoxylin and eosin-stained breast biopsy images using Convolutional Neural Networks (CNNs). Our method classifies images into four categories: normal tissue, benign lesion, in situ carcinoma, and invasive carcinoma, as well as a binary classification of carcinoma and non-carcinoma. The network architecture is meticulously designed to extract information at various scales, encompassing both individual nuclei and the overall tissue organization. This design enables the seamless integration of our proposed system with whole-slide histology images. Our method achieves an accuracy of 84.8% for the four-class classification and demonstrates a sensitivity of 95.6% for cancer cases.
+## Features
+
+- **Image Upload and Prediction**: Upload medical images (e.g., X-rays, ultrasounds, CT scans) for classification.
+- **PDF Upload and Summarization**: Upload PDF files to generate markdown-formatted summaries.
+- **AI-Generated Insights**: Provides structured insights based on the model’s classification and PDF content using Google's Generative AI model.
+- **Image Probability Plot**: Displays a plot showing the model’s confidence for each class prediction.
+- **Confidence Score**: Displays the confidence score for the image prediction.
+
+## Requirements
+
+- Python 3.8+
+- Flask
+- PyPDF2
+- Google Generative AI Python Client
+- Matplotlib
+- Markdown
+- NumPy
+- dotenv
