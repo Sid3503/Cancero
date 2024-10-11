@@ -47,9 +47,17 @@ def generate_insights(predicted_label, file_type, model_name="gemini-1.5-flash")
     # Validate the predicted_label
     valid_class_names = [
         'colon_adenocarcinoma', 'colon_benign_tissue',
-        'lung_bengin', 'lung_malignant', 'lung_normal',
-        'brain_glioma', 'brain_meningioma', 'brain_notumor', 'brain_pituitary',
-        'breast_cancer', 'breast_non_cancer'
+        'lung_adenocarcinoma', 'lung_benign_tissue',
+        'lung_squamous_cell_carcinoma',
+        'brain_glioma', 
+        'brain_meningioma', 
+        'brain_notumor', 
+        'brain_pituitary',
+        'breast_cancer', 
+        'breast_non_cancer', 
+        'lung_benign', 
+        'lung_malignant',
+        'lung_normal'
     ]
 
     if predicted_label not in valid_class_names:
