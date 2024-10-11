@@ -78,12 +78,6 @@
                         <a class="nav-link" href="/doctors">Doctors</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/news">Recent Development</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/charts">Charts</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="/upload">Upload Cancer Detection Files</a>
                     </li>
                     <li class="nav-item">
@@ -117,10 +111,10 @@
                     <h5><i class="bi bi-file-earmark-image"></i> Upload CT or MRI Images</h5>
                     <form action="{{ url_for('upload_ct_mri') }}" method="post" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label for="ct_mri_image">Upload CT/MRI Image:</label>
+                            <label for="ct_mri_image">Choose an image file:</label>
                             <input type="file" name="image" class="form-control" required>
                         </div>
-                        <button type="submit" class="btn btn-primary mt-2">Upload and Predict</button>
+                        <button type="submit" class="btn btn-primary mt-2">Upload Image</button>
                     </form>
                 </div>
             </div>
