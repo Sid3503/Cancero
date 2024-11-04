@@ -32,3 +32,7 @@ This AI-powered cancer detection system leverages a CNN to analyze medical image
 ![Screenshot 2024-10-02 201742](https://github.com/user-attachments/assets/7ffbd76f-9334-463b-8a44-d51580fc6af7)
 
 ![Screenshot 2024-09-29 164119](https://github.com/user-attachments/assets/0b481518-0e38-4e5e-a613-14db1a427e2c)
+
+## 🚀 About
+[@Siddharth Mishra](https://github.com/Sid3503)
+[@Ankush Verma](https://github.com/AnkushVe)
