@@ -1,6 +1,6 @@
 # Cancero
 
-This project is a Flask-based web application that allows users to upload medical images or PDFs, and it provides detailed insights by utilizing AI-generated summaries and predictions. The application uses a convolutional neural network (CNN) model for image classification and a generative model for creating structured insights from both images and PDF files.
+This AI-powered cancer detection system leverages a CNN to analyze medical images like MRIs, enabling early detection and accurate classification. Based on the cancer type and patient location, it provides personalized doctor recommendations and offers direct appointment booking. Real-time updates on cancer research are available via a News API. Enhanced reporting with the Gemini model offers detailed diagnostic insights, supporting both patient education and wellness.
 
 ## Features
 
