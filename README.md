@@ -10,6 +10,9 @@ This AI-powered cancer detection system leverages a CNN to analyze medical image
 - **Image Probability Plot**: Displays a plot showing the model’s confidence for each class prediction.
 - **Confidence Score**: Displays the confidence score for the image prediction.
 
+## Walkthrough
+https://github.com/user-attachments/assets/b9f60061-f0cb-47a1-a164-f806f708eee5
+
 ## Requirements
 
 - Python 3.8+
@@ -36,3 +39,4 @@ This AI-powered cancer detection system leverages a CNN to analyze medical image
 ## 🚀 About
 [@Siddharth Mishra](https://github.com/Sid3503)
 [@Ankush Verma](https://github.com/AnkushVe)
+[@Manoday Kadam](https://github.com/Manoday10)
