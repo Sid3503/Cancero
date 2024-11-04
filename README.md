@@ -16,7 +16,6 @@ This project is a Flask-based web application that allows users to upload medica
 - Flask
 - PyPDF2
 - Google Generative AI Python Client
-- Matplotlib
 - Markdown
 - NumPy
 - dotenv
