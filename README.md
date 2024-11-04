@@ -27,8 +27,8 @@ This project is a Flask-based web application that allows users to upload medica
 
 ![Screenshot 2024-10-02 201839](https://github.com/user-attachments/assets/4a86ee0b-56e2-4e7f-9846-d6135f9788fd)
 
-![Screenshot 2024-10-02 201742](https://github.com/user-attachments/assets/7ffbd76f-9334-463b-8a44-d51580fc6af7)
-
 ![Screenshot 2024-10-02 164422](https://github.com/user-attachments/assets/cc06ca09-01e3-4e39-9b71-418289156ac8)
+
+![Screenshot 2024-10-02 201742](https://github.com/user-attachments/assets/7ffbd76f-9334-463b-8a44-d51580fc6af7)
 
 ![Screenshot 2024-09-29 164119](https://github.com/user-attachments/assets/0b481518-0e38-4e5e-a613-14db1a427e2c)
